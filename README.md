@@ -11,10 +11,16 @@ free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
 
 TBD Supported on `Win*` and `*ninx`.
 
-## Testing and COntinuous Integration
+## Testing and Continuous Integration
 
 TBD
 
 ## Images
 
 TBD
+
+## Aditional Information
+
+This project has been inspired by and influenced by numerous previous works,
+including (but not limited to)
+the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
