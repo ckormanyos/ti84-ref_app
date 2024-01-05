@@ -1,9 +1,9 @@
 ti84-ref_app
 ==================
 
-## Building
+## Work in Progress
 
-**Note** This repository is WORK in progress.
+**Note** This repository is work in progress. The build systen, naming and standalone portaboe tools need significant tuning. The basic stuff compiles and runs, but there are a lot of formalities to be done.
 
 ## ti84-ref_app
 
