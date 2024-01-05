@@ -1,8 +1,10 @@
 ti84-ref_app
 ==================
 
+==================
 **Note**
-This repository is WORK in progress.
+  - This repository is WORK in progress.
+==================
 
 ckormanyos/ti84-ref_app creates a fully functioning reference application for the z80-based TI84-Plus monochrome graphics calculator.
 
