@@ -10,14 +10,23 @@ ti84-ref_app
         <img src="https://img.shields.io/badge/license-The Unlicense-blue.svg" alt="The Unlicense"></a>
 </p>
 
-`ckormanyos/ti84-ref_app` creates a fully functioning reference application for the z80-based TI84-Plus monochrome graphics calculator.
+`ckormanyos/ti84-ref_app` creates a fully functioning reference application
+for the z80-based TI84-Plus monochrome graphics calculator. It runs in the
+open `Asm(prgm)` interface provided in the calculator's _CATALOG_ menu.
+It uses the TI84's on-board Z80 processor.
 
-The reference application implements a small _blinky_-application supported by a skinny `main()`
-subroutine written in high-level C (as opposed to assembly). Since there is no LED present
-on the calculator-target system, the text _ON_/_OFF_ is printed at row-$2$, column-$7$,
-_toggling_ between _ON_ and _OFF_ at a frequency of about ${\sim}\frac{1}{2}Hz$.
+The reference application implements a small _blinky_-show.
 
-This application has a complete C-runtime initialization based on and using the
+The text _ON_/_OFF_ is written on the calculator screen.
+Text is used since there is no actual LED present on the calculator-target system.
+This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
+
+The toggle frequency has been empirically tuned to about ${\sim}{\frac{1}{2}}Hz$
+and the _ON_/_OFF_ text messages are printed at row $2$, column $7$.
+
+A skinny `main()` subroutine controls the toggling.
+It is written in high-level C (as opposed to assembly).
+This application has a complete C-runtime initialization based on (and using) the
 free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
 
 ## Building
@@ -43,7 +52,7 @@ The build results including HEX-File and `refapp.8xp` will be built in the `bin`
 Prerequisites:
   - Install sdcc version 4.3 or higher.
 
-```cmd
+```sh
 cd ti84-ref_app/build
 make TYP_OS=UNIX all
 ```
