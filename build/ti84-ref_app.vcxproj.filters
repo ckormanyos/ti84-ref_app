@@ -7,6 +7,12 @@
     <Filter Include="build">
       <UniqueIdentifier>{54997329-2438-4c93-853b-310e6bd5cc8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include=".github">
+      <UniqueIdentifier>{54254306-4a1d-4656-9af9-27fde83294fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include=".github\workflows">
+      <UniqueIdentifier>{51c0fac1-3039-46f7-b08f-aa19a9737be9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\refapp.c">
@@ -19,6 +25,9 @@
     </None>
     <None Include="Makefile">
       <Filter>build</Filter>
+    </None>
+    <None Include="..\.github\workflows\ti84-ref_app.yml">
+      <Filter>.github\workflows</Filter>
     </None>
   </ItemGroup>
 </Project>

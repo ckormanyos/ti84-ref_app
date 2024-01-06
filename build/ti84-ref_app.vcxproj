@@ -10,6 +10,7 @@
     <ClCompile Include="..\src\refapp.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.github\workflows\ti84-ref_app.yml" />
     <None Include="..\src\crt0.s" />
     <None Include="Makefile" />
   </ItemGroup>
