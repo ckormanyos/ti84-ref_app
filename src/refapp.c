@@ -1,3 +1,10 @@
+///////////////////////////////////////////////////////////////////////////////
+//  Copyright Christopher Kormanyos 2024.
+//  Distributed under The Unlicense
+//
+
+#include <stdint.h>
+
 // _ClrLCDFull       #0x4540
 // _HomeUp           #0x4558
 // _JForceCmdNoChar  #0x4027
@@ -8,39 +15,45 @@
 // curCol            #0x844C
 // _PutC             #0x4504
 
+
+#if defined(_MSC_VER)
+#define __asm__(x)
+#endif
+
+
 static void init(void);
 
 static void led_on (void);
 static void led_off(void);
 static void led_clr(void);
 
-static unsigned char wants_exit(void);
+static uint8_t wants_exit(void);
 
 void main(void)
 {
   init();
 
-  volatile unsigned char exit_flag = (unsigned char) 0U;
+  volatile uint8_t exit_flag = (uint8_t) UINT8_C(0);
 
   for(;;)
   {
     led_clr();
     led_on();
 
-    for(volatile unsigned   i = (unsigned) 0x0U;
-                          ((i < (unsigned) 0x0F80U) && ((exit_flag = wants_exit()) == (unsigned char) 0U));
-                          ++i) { ; }
+    for(volatile uint_fast16_t   i = (uint_fast16_t) UINT16_C(0x0);
+                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = wants_exit()) == (uint8_t) UINT8_C(0)));
+                               ++i) { ; }
 
-    if(exit_flag != (unsigned char) 0U) { break; }
+    if(exit_flag != (uint8_t) UINT8_C(0)) { break; }
 
     led_clr();
     led_off();
 
-    for(volatile unsigned   i = (unsigned) 0x0U;
-                          ((i < (unsigned) 0x0F80U) && ((exit_flag = wants_exit()) == (unsigned char) 0U));
-                          ++i) { ; }
+    for(volatile uint_fast16_t   i = (uint_fast16_t) UINT16_C(0x0);
+                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = wants_exit()) == (uint8_t) UINT8_C(0)));
+                               ++i) { ; }
 
-    if(exit_flag != (unsigned char) 0U) { break; }
+    if(exit_flag != (uint8_t) UINT8_C(0)) { break; }
   }
 
   __asm__("rst 0x28\n" ".dw #0x4027\n");
@@ -101,9 +114,9 @@ void led_clr(void)
   __asm__("rst 0x28\n" ".dw #0x4504\n");
 }
 
-unsigned char wants_exit(void)
+uint8_t wants_exit(void)
 {
-  volatile unsigned char exit_flag = (unsigned char) 0U;
+  volatile uint8_t exit_flag = (uint8_t) UINT8_C(0);
 
   __asm__
   (
@@ -112,7 +125,7 @@ unsigned char wants_exit(void)
     "jp nz,no_exit\n"
   );
 
-  exit_flag = (unsigned char) 1U;
+  exit_flag = (uint8_t) UINT8_C(1);
 
   __asm__
   (

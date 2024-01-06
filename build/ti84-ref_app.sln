@@ -7,11 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ti84-ref_app", "ti84-ref_ap
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		tios|x64 = tios|x64
+		ti84-plus|x64 = ti84-plus|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4AA78A10-749E-4642-A994-D0737F230127}.tios|x64.ActiveCfg = tios|x64
-		{4AA78A10-749E-4642-A994-D0737F230127}.tios|x64.Build.0 = tios|x64
+		{4AA78A10-749E-4642-A994-D0737F230127}.ti84-plus|x64.ActiveCfg = ti84-plus|x64
+		{4AA78A10-749E-4642-A994-D0737F230127}.ti84-plus|x64.Build.0 = ti84-plus|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

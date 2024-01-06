@@ -14,9 +14,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\ti83plus.inc">
-      <Filter>src</Filter>
-    </None>
     <None Include="..\src\crt0.s">
       <Filter>src</Filter>
     </None>

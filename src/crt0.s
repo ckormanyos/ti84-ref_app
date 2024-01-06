@@ -1,4 +1,9 @@
-; tios_crt0.s - TIOS assembly program header
+;///////////////////////////////////////////////////////////////////////////////
+;//  Copyright Christopher Kormanyos 2024.
+;//  Distributed under The Unlicense
+;//
+
+; crt0.s - C-runtime startup
 
    .module crt
    .globl _main
@@ -9,23 +14,21 @@
 
    call gsinit
    jp _main
-   .org 0x9d9b ;9d9b
-   .area _HOME
+   .org 0x9D9B
    .area _CODE
    .area _GSINIT
    .area _GSFINAL
    .area _DATA
-   .area _BSEG
    .area _BSS
-   .area _HEAP
-   .area _CODE
-   ;; Twice ???
+   .area _INITIALIZED
+   .area _INITIALIZER
 
-__clock::
-   ld a,#2
-   ret ; needed somewhere...
+__clock:
+  ld a,#2
+  ret
 
-   .area _GSINIT
-gsinit::
-   .area _GSFINAL
-   ret
+.area _GSINIT
+gsinit:
+  .area _GSFINAL
+  ld a, #0x0
+  ret
