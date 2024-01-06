@@ -11,6 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.github\workflows\ti84-ref_app.yml" />
+    <None Include="..\README.md" />
     <None Include="..\src\crt0.s" />
     <None Include="Makefile" />
   </ItemGroup>
