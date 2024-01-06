@@ -76,21 +76,16 @@ TBD: Provide images of the _blinking_ text.
 
 ## Aditional Information
 
-### Licencing
-
-Origins and Licensing notices:
-  - The source code written for this repo (in the [`src`-directory](./src)) is licensed under _The_ _Unlicense_.
-  - The `Win*` ported `*nix` tools (`cp.exe`, `echo.exe`, `mkdir.exe`, `mv.exe` and `rm.exe`) runing on `Win*` originate from [UnxTools](https://sourceforge.net/projects/unxutils).
-  - The `Win*` ported `objcopy.exe` originates from _nuwen_'s specially-built [standalone MinGW](https://nuwen.net/mingw.html).
-  - The `Win*` ported GNUmake is from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
-
-and include their own
-[distribution statements](./build/tools/UnxUtils).
-
-
-
-               6 Datei(en),      1,659,904 Bytes
+### Origins
 
 This project has been inspired by and influenced by numerous previous works,
 including (but not limited to)
 the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
+
+### Licencing
+
+Licensing notices:
+  - The source code written for this repo (in the [`src`](./src)) directory is licensed under [_The_ _Unlicense_](./LICENSE).
+  - `Win*` ported `*nix` tools (including `cp.exe`, `echo.exe`, `mkdir.exe`, `mv.exe` and `rm.exe`) originate from [UnxTools](https://sourceforge.net/projects/unxutils) and include their own [distribution statements](./build/tools/UnxUtils).
+  - The `Win*` ported `objcopy.exe` originates from _nuwen_'s specially-built [standalone MinGW](https://nuwen.net/mingw.html).
+  - The `Win*` ported GNUmake is taken from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
