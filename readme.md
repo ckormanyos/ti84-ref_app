@@ -11,9 +11,9 @@ ti84-ref_app
 </p>
 
 `ckormanyos/ti84-ref_app` creates a fully functioning reference application
-for the z80-based TI84-Plus monochrome graphics calculator. It runs in the
+for the z80-based TI-84 Plus monochrome graphics calculator. It runs in the
 open `Asm(prgm)` interface provided in the calculator's _CATALOG_ menu.
-It uses the TI84's on-board Z80 processor.
+It uses the TI-84's on-board Z80 processor.
 
 The reference application implements a small _blinky_-show.
 
@@ -66,7 +66,7 @@ make TYP_OS=UNIX all
 ## Testing and Continuous Integration
 
 Testing has been performed on the target system, which is a fully-functioning
-TI84-Plus calculator purchased years ago from a commercial retailer.
+TI-84 Plus calculator purchased years ago from a commercial retailer.
 
 Continuous integration builds the application on an ubuntu-latest GHA runner
 and verifies the presence of `bin/refapp-8xp`.
