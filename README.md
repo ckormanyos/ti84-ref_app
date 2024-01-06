@@ -34,30 +34,33 @@ free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
 The build system is supported on both `Win*` and `*nix`. Ported `*nix` tools
 support the `Win*`-build.
 
+Build results including HEX-File and the on-calculator image `refapp.8xp`
+will be placed in the `bin`-directory.
+
 ### Build on `Win*`
 
 Prerequisites:
   - Install sdcc version 4.3 or higher.
   - Install python.
 
+Then build in the command shell with:
+
 ```cmd
 cd ti84-ref_app\build
 make TYP_OS=WIN all
 ```
-
-The build results including HEX-File and `refapp.8xp` will be built in the `bin`-directory.
 
 ### Build on `*nix`
 
 Prerequisites:
   - Install sdcc version 4.3 or higher.
 
+Then build in the bash shell with:
+
 ```sh
 cd ti84-ref_app/build
 make TYP_OS=UNIX all
 ```
-
-The build results including HEX-File and `refapp.8xp` will be built in the `bin`-directory.
 
 ## Testing and Continuous Integration
 
@@ -73,7 +76,20 @@ TBD: Provide images of the _blinking_ text.
 
 ## Aditional Information
 
-Licensing TBD.
+### Licencing
+
+Origins and Licensing notices:
+  - The source code written for this repo (in the [`src`-directory](./src)) is licensed under _The_ _Unlicense_.
+  - The `Win*` ported `*nix` tools (`cp.exe`, `echo.exe`, `mkdir.exe`, `mv.exe` and `rm.exe`) runing on `Win*` originate from [UnxTools](https://sourceforge.net/projects/unxutils).
+  - The `Win*` ported `objcopy.exe` originates from _nuwen_'s specially-built [standalone MinGW](https://nuwen.net/mingw.html).
+  - The `Win*` ported GNUmake is from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
+
+and include their own
+[distribution statements](./build/tools/UnxUtils).
+
+
+
+               6 Datei(en),      1,659,904 Bytes
 
 This project has been inspired by and influenced by numerous previous works,
 including (but not limited to)
