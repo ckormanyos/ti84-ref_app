@@ -13,6 +13,9 @@
     <Filter Include=".github\workflows">
       <UniqueIdentifier>{51c0fac1-3039-46f7-b08f-aa19a9737be9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="_doc">
+      <UniqueIdentifier>{df942a55-4dfe-45ea-8fcb-dd862ce2f5e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\refapp.c">
@@ -28,6 +31,9 @@
     </None>
     <None Include="..\.github\workflows\ti84-ref_app.yml">
       <Filter>.github\workflows</Filter>
+    </None>
+    <None Include="..\README.md">
+      <Filter>_doc</Filter>
     </None>
   </ItemGroup>
 </Project>
