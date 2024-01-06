@@ -234,5 +234,5 @@ if __name__ == "__main__":
 	basepath = os.path.dirname(fnamein)
 	safeprint("**Pass 1/1: .8"+calc+"p Construction**")
 	parsefile(fnamein,fnameout,basepath,calc,oncalcname)
-	safeprint("Total time:",str(time.mktime(time.localtime())-time.mktime(t_start)) + "s")
+	safeprint("\nTotal time:",str(time.mktime(time.localtime())-time.mktime(t_start)) + "s")
 	sys.exit()

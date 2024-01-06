@@ -6,11 +6,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\refapp.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\crt0.s" />
+    <None Include="..\src\ti83plus.inc" />
+    <None Include="Makefile" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AA78A10-749E-4642-A994-D0737F230127}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ti84-ref_app</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='tios|x64'" Label="Configuration">
@@ -28,21 +37,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='tios|x64'">
-    <NMakeBuildCommandLine>make helloworld</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>make all</NMakeBuildCommandLine>
     <NMakeOutput>helloworld.8xp</NMakeOutput>
     <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>make clean &amp;&amp; make helloworld</NMakeReBuildCommandLine>
+    <NMakeReBuildCommandLine>make all</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="helloworld.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Makefile" />
-    <None Include="tios_crt0.s" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
