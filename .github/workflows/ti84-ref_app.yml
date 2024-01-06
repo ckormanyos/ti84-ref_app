@@ -27,7 +27,7 @@ jobs:
       - name: build-and-verify-refapp
         run: |
           cd build
-          PATH=../sdcc-root/sdcc-4.3.0/bin:"$PATH"
+          PATH=../../sdcc-root/sdcc-4.3.0/bin:"$PATH"
           sdcc -v
           make TYP_OS=UNIX all
           echo 'build-and-verify-refapp partial verify result'
