@@ -24,7 +24,8 @@ This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
 The toggle frequency has been empirically tuned to about ${\sim}{\frac{1}{2}}Hz$
 and the _ON_/_OFF_ text messages are printed at row $2$, column $7$.
 
-A skinny `main()` subroutine controls the toggling.
+A skinny `main()` subroutine in the soruce file
+(`refapp.c`)[./src/refapp.c] controls the toggling.
 It is written in high-level C (as opposed to assembly).
 This application has a complete C-runtime initialization based on (and using) the
 free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
