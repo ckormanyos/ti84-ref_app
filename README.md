@@ -10,14 +10,24 @@ ti84-ref_app
         <img src="https://img.shields.io/badge/license-The Unlicense-blue.svg" alt="The Unlicense"></a>
 </p>
 
-`ckormanyos/ti84-ref_app` creates a fully functioning reference application for the z80-based TI84-Plus monochrome graphics calculator.
+`ckormanyos/ti84-ref_app` creates a fully functioning reference application
+for the z80-based TI84-Plus monochrome graphics calculator. It runs in the
+open `Asm(prgm)` interface provided in the calculator's _CATALOG_ menu.
+It uses the TI84's on-board Z80 processor.
 
-The reference application implements a small _blinky_-application supported by a skinny `main()`
-subroutine written in high-level C (as opposed to assembly). Since there is no LED present
-on the calculator-target system, the text _ON_/_OFF_ is printed at row-$2$, column-$7$,
-_toggling_ between _ON_ and _OFF_ at a frequency of about ${\sim}\frac{1}{2}Hz$.
+The reference application implements a small _blinky_-show.
 
-This application has a complete C-runtime initialization based on and using the
+The text _ON_/_OFF_ is written on the calculator screen.
+Text is used since there is no actual LED present on the calculator-target system.
+This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
+
+The toggle frequency has been empirically tuned to about ${\sim}{\frac{1}{2}}Hz$
+and the _ON_/_OFF_ text messages are printed at row $2$, column $7$.
+
+A skinny `main()` subroutine in the soruce file
+[`refapp.c`](./src/refapp.c) controls the toggling.
+It is written in high-level C (as opposed to assembly).
+This application has a complete C-runtime initialization based on (and using) the
 free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
 
 ## Building
@@ -25,30 +35,33 @@ free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
 The build system is supported on both `Win*` and `*nix`. Ported `*nix` tools
 support the `Win*`-build.
 
+Build results including HEX-File and the on-calculator image `refapp.8xp`
+will be placed in the `bin`-directory.
+
 ### Build on `Win*`
 
 Prerequisites:
   - Install sdcc version 4.3 or higher.
   - Install python.
 
+Then build in the command shell with:
+
 ```cmd
 cd ti84-ref_app\build
 make TYP_OS=WIN all
 ```
-
-The build results including HEX-File and `refapp.8xp` will be built in the `bin`-directory.
 
 ### Build on `*nix`
 
 Prerequisites:
   - Install sdcc version 4.3 or higher.
 
-```cmd
+Then build in the bash shell with:
+
+```sh
 cd ti84-ref_app/build
 make TYP_OS=UNIX all
 ```
-
-The build results including HEX-File and `refapp.8xp` will be built in the `bin`-directory.
 
 ## Testing and Continuous Integration
 
@@ -60,12 +73,22 @@ and verifies the presence of `bin/refapp-8xp`.
 
 ## Images
 
-TBD: Provide images of the _blinking_ text.
+The running programm in the toggle-state _ON_ is shown in the image below.
+
+![](./images/ti84-ref_app.jpg)
 
 ## Aditional Information
 
-Licensing TBD.
+### Origins
 
 This project has been inspired by and influenced by numerous previous works,
 including (but not limited to)
 the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
+
+### Licencing
+
+Licensing notices:
+  - The source code written for this repo (in the [`src`](./src)) directory is licensed under [_The_ _Unlicense_](./LICENSE).
+  - `Win*` ported `*nix` tools (including `cp.exe`, `echo.exe`, `mkdir.exe`, `mv.exe` and `rm.exe`) originate from [UnxTools](https://sourceforge.net/projects/unxutils) and include their own [distribution statements](./build/tools/UnxUtils).
+  - The `Win*`-ported `objcopy.exe` originates from _nuwen_'s specially-built [standalone MinGW](https://nuwen.net/mingw.html).
+  - The `Win*`-ported GNUmake is taken from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
