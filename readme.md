@@ -66,7 +66,7 @@ make TYP_OS=UNIX all
 ## Testing and Continuous Integration
 
 Testing has been performed on the target system, which is a fully-functioning
-TI84-Plus calculator purchased years ago from a commercial retailer.
+TI-84 Plus calculator purchased years ago from a commercial retailer.
 
 Continuous integration builds the application on an ubuntu-latest GHA runner
 and verifies the presence of `bin/refapp-8xp`.
