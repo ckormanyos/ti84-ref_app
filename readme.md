@@ -15,20 +15,29 @@ for the z80-based TI-84 Plus monochrome graphics calculator. It runs in the
 open `Asm(prgm)` interface provided in the calculator's _CATALOG_ menu.
 It uses the TI-84's on-board Z80 processor.
 
-The reference application implements a small _blinky_-show.
+The reference application implements a small _blinky_ show.
 
-The text _ON_/_OFF_ is written on the calculator screen.
+The ASCII-text _ON_/_OFF_ is written on the calculator screen.
 Text is used since there is no actual LED present on the calculator-target system.
 This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
 
-The toggle frequency has been empirically tuned to about ${\sim}{\frac{1}{2}}Hz$
-and the _ON_/_OFF_ text messages are printed at row $2$, column $7$.
+The blinky _ON_/_OFF_ toggle-frequency has been empirically tuned to about ${\sim}{\frac{1}{2}}Hz$.
+The blinky _ON_/_OFF_ text messages are printed at row $2$, column $7$.
 
 A skinny `main()` subroutine in the soruce file
-[`refapp.c`](./src/refapp.c) controls the toggling.
+[`app_led.c`](./src/app/app_led.c) controls the toggling.
 It is written in high-level C (as opposed to assembly).
-This application has a complete C-runtime initialization based on (and using) the
-free [`sdcc`](https://sdcc.sourceforge.net) toolchain.
+
+## Running on the Calculator
+
+The on-calculator name of the program is `REFAPP`.
+To start the program use the usual `Asm(prgm)` option found in the _CATALOG_ menu
+and select the `REFAPP` program. To exit the blinky _ON_/_OFF_ show,
+press the enter key.
+
+The running programm in the toggle-state _ON_ is shown in the image below.
+
+![](./images/ti84-ref_app.jpg)
 
 ## Building
 
@@ -63,6 +72,12 @@ cd ti84-ref_app/build
 make TYP_OS=UNIX all
 ```
 
+This application uses the free
+[`sdcc`](https://sdcc.sourceforge.net) toolchain.
+There is a complete C-runtime initialization supported
+with the files in the [startup](./src/startup) directory
+(TBD RAM bss/data init, see [issue 4](https://github.com/ckormanyos/ti84-ref_app/issues/4)).
+
 ## Testing and Continuous Integration
 
 Testing has been performed on the target system, which is a fully-functioning
@@ -70,12 +85,6 @@ TI-84 Plus calculator purchased years ago from a commercial retailer.
 
 Continuous integration builds the application on an ubuntu-latest GHA runner
 and verifies the presence of `bin/refapp-8xp`.
-
-## Images
-
-The running programm in the toggle-state _ON_ is shown in the image below.
-
-![](./images/ti84-ref_app.jpg)
 
 ## Aditional Information
 

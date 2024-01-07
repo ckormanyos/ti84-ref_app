@@ -7,13 +7,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\refapp.c" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\.github\workflows\ti84-ref_app.yml" />
     <None Include="..\readme.md" />
-    <None Include="..\src\crt0.s" />
+    <None Include="..\src\startup\crt0.s" />
     <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\app\app_led.c" />
+    <ClCompile Include="..\src\app\app_util.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\app\app_util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -44,6 +48,7 @@
     <NMakeReBuildCommandLine>make TYP_OS=WIN all</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>
     </NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(ProjectDir)..\src</NMakeIncludeSearchPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
