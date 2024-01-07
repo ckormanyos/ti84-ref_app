@@ -74,17 +74,17 @@ make TYP_OS=UNIX all
 
 This application uses the free
 [`sdcc`](https://sdcc.sourceforge.net) toolchain.
-There is a complete C-runtime initialization supported
-with the files in the [startup](./src/startup) directory
-(TBD RAM bss/data init, see [issue 4](https://github.com/ckormanyos/ti84-ref_app/issues/4)).
+C-runtime initialization (i.e., static initialization prior to the call of `main()`)
+is supported with the file [crt0.s](./src/startup/crt0.s) in the `startup` directory.
 
 ## Testing and Continuous Integration
 
 Testing has been performed on the target system, which is a fully-functioning
 TI-84 Plus calculator purchased years ago from a commercial retailer.
 
-Continuous integration builds the application on an ubuntu-latest GHA runner
-and verifies the presence of `bin/refapp-8xp`.
+Continuous integration is performed on GHA using an ubuntu-latest runner.
+The [workflow run](./.github/workflows/ti84-ref_app.yml)
+builds the application and verifies the presence of `bin/refapp-8xp`.
 
 ## Aditional Information
 

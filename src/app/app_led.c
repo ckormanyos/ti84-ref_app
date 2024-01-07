@@ -33,13 +33,21 @@ void main(void)
                                ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == (uint8_t) UINT8_C(0)));
                                ++i) { ; }
 
-    if(exit_flag != (uint8_t) UINT8_C(0)) { break; }
+    if(exit_flag != (uint8_t) UINT8_C(0))
+    {
+      break;
+    }
   }
+
+  // Exit the Application and return to the home screen
+  // using the JForceCmdNoChar function. See also page 16
+  // in "TI-83 Plus System Routines", Third Release,
+  // (Jan. 25, 2002).
 
   __asm__("rst 0x28\n" ".dw #0x4027\n");
 }
 
-void app_led_on(void)
+static void app_led_on(void)
 {
   __asm__("ld b,#0x02\n");
   __asm__("ld a,b\n");
@@ -54,7 +62,7 @@ void app_led_on(void)
   __asm__("rst 0x28\n" ".dw #0x4504\n");
 }
 
-void app_led_off(void)
+static void app_led_off(void)
 {
   __asm__("ld b,#0x02\n");
   __asm__("ld a,b\n");
@@ -71,7 +79,7 @@ void app_led_off(void)
   __asm__("rst 0x28\n" ".dw #0x4504\n");
 }
 
-void app_led_clr(void)
+static void app_led_clr(void)
 {
   __asm__("ld b,#0x02\n");
   __asm__("ld a,b\n");
