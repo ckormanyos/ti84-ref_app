@@ -7,20 +7,10 @@
 
 #include <app/app_util.h>
 
+static bool app_util_check_crt0(void);
+
 extern uint8_t app_dummy_test_non_initialized;
 extern uint8_t app_dummy_test_initialized;
-
-static bool app_util_check_crt0(void)
-{
-  // Check static initialization.
-
-  bool result_crt0_non_init_is_ok = ((app_dummy_test_non_initialized == (uint8_t) UINT8_C(0))  ? true : false);
-  bool result_crt0_init_is_ok     = ((app_dummy_test_initialized     == (uint8_t) UINT8_C(42)) ? true : false);
-
-  bool result_check_crt0_is_ok = ((result_crt0_non_init_is_ok && result_crt0_init_is_ok) ? true : false);
-
-  return result_check_crt0_is_ok;
-}
 
 void app_util_init(void)
 {
@@ -33,18 +23,18 @@ void app_util_init(void)
   __asm__("rst 0x28\n" ".dw #0x4558\n");
 }
 
-uint8_t app_util_wants_exit(void)
+bool app_util_wants_exit(void)
 {
-  volatile uint8_t exit_flag = (uint8_t) UINT8_C(0);
+  volatile bool exit_flag = false;
 
   __asm__
   (
     "rst 0x28\n" ".dw #0x4018\n"
     "cp #0x9\n"
-    "jp nz,no_exit\n"
+    "jp nz, no_exit\n"
   );
 
-  exit_flag = (uint8_t) UINT8_C(1);
+  exit_flag = true;
 
   __asm__
   (
@@ -52,4 +42,16 @@ uint8_t app_util_wants_exit(void)
   );
 
   return exit_flag;
+}
+
+static bool app_util_check_crt0(void)
+{
+  // Check static initialization.
+
+  const bool result_crt0_non_init_is_ok = ((app_dummy_test_non_initialized == (uint8_t) UINT8_C(0))  ? true : false);
+  const bool result_crt0_init_is_ok     = ((app_dummy_test_initialized     == (uint8_t) UINT8_C(42)) ? true : false);
+
+  const bool result_check_crt0_is_ok = ((result_crt0_non_init_is_ok && result_crt0_init_is_ok) ? true : false);
+
+  return result_check_crt0_is_ok;
 }

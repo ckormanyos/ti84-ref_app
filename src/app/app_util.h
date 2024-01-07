@@ -6,6 +6,7 @@
 #ifndef APP_UTIL_2024_01_7_H
   #define APP_UTIL_2024_01_7_H
 
+  #include <stdbool.h>
   #include <stdint.h>
 
   #if defined(_MSC_VER)
@@ -22,7 +23,7 @@
   // curCol            #0x844C
   // _PutC             #0x4504
 
-  void    app_util_init      (void);
-  uint8_t app_util_wants_exit(void);
+  void app_util_init      (void);
+  bool app_util_wants_exit(void);
 
 #endif // APP_UTIL_2024_01_7_H
