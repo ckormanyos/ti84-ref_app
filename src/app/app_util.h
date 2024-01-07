@@ -9,9 +9,10 @@
   #include <stdbool.h>
   #include <stdint.h>
 
-  #if defined(_MSC_VER)
-  #define __asm__(x)
-  #endif
+  #include <startup/asm_util.h>
+
+  // See also: https://wikiti.brandonw.net/index.php?title=Category:83Plus:Ports:By_Address
+  // and also: https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf
 
   // _ClrLCDFull       #0x4540
   // _HomeUp           #0x4558

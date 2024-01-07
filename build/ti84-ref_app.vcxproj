@@ -10,6 +10,8 @@
     <None Include="..\.github\workflows\ti84-ref_app.yml" />
     <None Include="..\readme.md" />
     <None Include="..\src\startup\crt0.s" />
+    <None Include="..\src\startup\clock.c" />
+    <None Include="..\src\startup\ti83plus.inc" />
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
@@ -19,6 +21,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_util.h" />
+    <ClInclude Include="..\src\startup\asm_util.h" />
+    <ClInclude Include="..\src\startup\clock.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

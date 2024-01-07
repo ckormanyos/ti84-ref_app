@@ -36,6 +36,12 @@
     <None Include="..\src\startup\crt0.s">
       <Filter>src\startup</Filter>
     </None>
+    <None Include="..\src\startup\clock.c">
+      <Filter>src\startup</Filter>
+    </None>
+    <None Include="..\src\startup\ti83plus.inc">
+      <Filter>src\startup</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\app\app_led.c">
@@ -51,6 +57,12 @@
   <ItemGroup>
     <ClInclude Include="..\src\app\app_util.h">
       <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\startup\asm_util.h">
+      <Filter>src\startup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\startup\clock.h">
+      <Filter>src\startup</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

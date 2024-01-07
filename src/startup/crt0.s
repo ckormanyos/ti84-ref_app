@@ -3,7 +3,8 @@
 ;//  Distributed under The Unlicense
 ;//
 
-; crt0.s - C-runtime startup
+; crt0.s
+; Perform C-runtime startup including static initialization (i.e., bss/data clear/init).
 
    .module crt
    .globl _main
@@ -22,10 +23,6 @@
    .area _BSS
    .area _INITIALIZED
    .area _INITIALIZER
-
-__clock:
-  ld a,#2
-  ret
 
 .area _GSINIT
 gsinit:
@@ -58,5 +55,5 @@ zeroed_data:
 
 gsinit_next:
 
-  .area   _GSFINAL
+  .area _GSFINAL
   ret
