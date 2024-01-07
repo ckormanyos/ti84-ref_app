@@ -26,12 +26,14 @@ The blinky _ON_/_OFF_ text messages are printed at row $2$, column $7$.
 
 A skinny `main()` subroutine in the soruce file
 [`app_led.c`](./src/app/app_led.c) controls the toggling.
-It is written in high-level C (as opposed to assembly).
+The application is written in high-level C17.
+There is minimal use of assembly for startup and to interface with
+[TI-83 Plus System Routines](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf).
 
 ## Running on the Calculator
 
 The on-calculator name of the program is `REFAPP`.
-To start the program use the usual `Asm(prgm)` option found in the _CATALOG_ menu
+To start the program, use the usual `Asm(prgm)` option found in the _CATALOG_ menu
 and select the `REFAPP` program. To exit the blinky _ON_/_OFF_ show,
 press the enter key.
 
