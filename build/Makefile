@@ -97,7 +97,8 @@ CFLAGS         := --no-std-crt0            \
                   --data-loc 0x0           \
                   --std-sdcc17             \
                   -mz80                    \
-                  --reserve-regs-iy
+                  --reserve-regs-iy        \
+                  -I$(PATH_SRC)
 
 
 ##############################################################################80
@@ -129,10 +130,12 @@ version:
 
 $(PATH_BIN)/refapp.8xp :
 	@-$(ECHO)
-	@-$(ECHO) +++ assembling $(notdir $(PATH_SRC)/crt0.s)
-	@-$(AS) $(AFLAGS) -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/crt0.s
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/refapp.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
-	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_OBJ)/crt0.rel $(PATH_SRC)/refapp.c
+	@-$(ECHO) +++ assembling $(notdir $(PATH_SRC)/startup/crt0.s)
+	@-$(AS) $(AFLAGS) -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/startup/crt0.s
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_util.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_util.rel $(PATH_SRC)/app/app_util.c
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
+	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_led.c $(PATH_OBJ)/app_util.rel $(PATH_OBJ)/crt0.rel
 	@-$(ECHO) +++ creating binary $(notdir $(PATH_BIN)/refapp.bin)
 	@-$(OBJCOPY) -Iihex -Obinary $(PATH_BIN)/refapp.ihx $(PATH_BIN)/refapp.bin
 	@-$(ECHO)

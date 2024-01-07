@@ -16,16 +16,14 @@
     <Filter Include="_doc">
       <UniqueIdentifier>{df942a55-4dfe-45ea-8fcb-dd862ce2f5e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\startup">
+      <UniqueIdentifier>{b66dace5-eb56-40e1-a75c-d5ac3c9b8bec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\app">
+      <UniqueIdentifier>{d5a1a826-e7d1-4bcc-9314-bdaadc6de10f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\refapp.c">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\src\crt0.s">
-      <Filter>src</Filter>
-    </None>
     <None Include="Makefile">
       <Filter>build</Filter>
     </None>
@@ -35,5 +33,21 @@
     <None Include="..\readme.md">
       <Filter>_doc</Filter>
     </None>
+    <None Include="..\src\startup\crt0.s">
+      <Filter>src\startup</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\app\app_led.c">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app\app_util.c">
+      <Filter>src\app</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\app\app_util.h">
+      <Filter>src\app</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
