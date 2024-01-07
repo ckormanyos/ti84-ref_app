@@ -39,18 +39,22 @@ The running programm in the toggle-state _ON_ is shown in the image below.
 
 ![](./images/ti84-ref_app.jpg)
 
-## Building
+## Tools and Build
 
-The build system is supported on both `Win*` and `*nix`. Ported `*nix` tools
-support the `Win*`-build.
+This application uses the free
+[`sdcc`](https://sdcc.sourceforge.net) toolchain.
+C-runtime initialization (i.e., static initialization prior to the call of `main()`)
+is supported with the file [crt0.s](./src/startup/crt0.s) in the `startup` directory.
 
-Build results including HEX-File and the on-calculator image `refapp.8xp`
-will be placed in the `bin`-directory.
+The build system:
+  - The build system uses GNUmake with a straighforward [Makefile](./build/Makefile).
+  - The build system is supported on both `Win*` and `*nix`. Ported `*nix` tools support the `Win*`-build.
+  - Build results including HEX-File and the on-calculator image `refapp.8xp` will be placed in the `bin`-directory.
 
 ### Build on `Win*`
 
 Prerequisites:
-  - Install sdcc version 4.3 or higher.
+  - Install [`sdcc`](https://sdcc.sourceforge.net) version 4.3 or higher.
   - Install python.
 
 Then build in the command shell with:
@@ -63,7 +67,7 @@ make TYP_OS=WIN all
 ### Build on `*nix`
 
 Prerequisites:
-  - Install sdcc version 4.3 or higher.
+  - Install [`sdcc`](https://sdcc.sourceforge.net) version 4.3 or higher.
 
 Then build in the bash shell with:
 
@@ -71,11 +75,6 @@ Then build in the bash shell with:
 cd ti84-ref_app/build
 make TYP_OS=UNIX all
 ```
-
-This application uses the free
-[`sdcc`](https://sdcc.sourceforge.net) toolchain.
-C-runtime initialization (i.e., static initialization prior to the call of `main()`)
-is supported with the file [crt0.s](./src/startup/crt0.s) in the `startup` directory.
 
 ## Testing and Continuous Integration
 
