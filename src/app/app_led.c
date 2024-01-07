@@ -13,7 +13,7 @@ void main(void)
 {
   app_util_init();
 
-  volatile uint8_t exit_flag = (uint8_t) UINT8_C(0);
+  bool exit_flag = false;
 
   for(;;)
   {
@@ -21,22 +21,19 @@ void main(void)
     app_led_on();
 
     for(volatile uint_fast16_t   i = (uint_fast16_t) UINT16_C(0x0);
-                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == (uint8_t) UINT8_C(0)));
+                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == false));
                                ++i) { ; }
 
-    if(exit_flag != (uint8_t) UINT8_C(0)) { break; }
+    if(exit_flag) { break; }
 
     app_led_clr();
     app_led_off();
 
     for(volatile uint_fast16_t   i = (uint_fast16_t) UINT16_C(0x0);
-                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == (uint8_t) UINT8_C(0)));
+                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == false));
                                ++i) { ; }
 
-    if(exit_flag != (uint8_t) UINT8_C(0))
-    {
-      break;
-    }
+    if(exit_flag) { break; }
   }
 
   // Exit the Application and return to the home screen
