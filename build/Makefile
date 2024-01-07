@@ -22,7 +22,7 @@
 
 
 ##############################################################################80
-# Paths
+# paths
 ##############################################################################80
 
 PATH_SRC        := $(CURDIR)/../src
@@ -31,7 +31,7 @@ PATH_OBJ        := $(CURDIR)/obj
 
 
 ##############################################################################80
-# Tools
+# tools
 ##############################################################################80
 
 ifeq ($(TYP_OS),)
@@ -85,7 +85,7 @@ endif
 
 
 ##############################################################################80
-# Flags
+# flags
 ##############################################################################80
 
 AFLAGS         := -p                       \
@@ -102,12 +102,11 @@ CFLAGS         := --no-std-crt0            \
 
 
 ##############################################################################80
-# Make-command Goals
+# make-command goals
 ##############################################################################80
 
 .PHONY: all
 all : clean version $(PATH_BIN)/refapp.8xp
-
 
 
 ##############################################################################80
@@ -122,39 +121,40 @@ version:
 	@-$(ECHO)
 	@-$(ECHO) +++ print GNUmake version
 	@-$(GNUMAKE) -v
-	@-$(ECHO)
+
 
 ##############################################################################80
-# Compile/link/HEX-manip Rules
+# compile/link/hex-manip rules
 ##############################################################################80
 
 $(PATH_BIN)/refapp.8xp :
 	@-$(ECHO)
 	@-$(ECHO) +++ assembling $(notdir $(PATH_SRC)/startup/crt0.s)
-	@-$(AS) $(AFLAGS) -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/startup/crt0.s
+	@-$(AS) $(AFLAGS) -c -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/startup/crt0.s
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_dummy.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_dummy.rel $(PATH_SRC)/app/app_dummy.c
 	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_util.c)
 	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_util.rel $(PATH_SRC)/app/app_util.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/startup/crt0_init_ram.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_dummy.rel $(PATH_SRC)/app/app_dummy.c
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/startup/clock.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/clock.rel $(PATH_SRC)/startup/clock.c
 	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
-	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_led.c $(PATH_OBJ)/app_dummy.rel $(PATH_OBJ)/app_util.rel $(PATH_OBJ)/crt0.rel
+	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_led.c $(PATH_OBJ)/app_dummy.rel $(PATH_OBJ)/app_util.rel $(PATH_OBJ)/clock.rel $(PATH_OBJ)/crt0.rel
 	@-$(ECHO) +++ creating binary $(notdir $(PATH_BIN)/refapp.bin)
 	@-$(OBJCOPY) -Iihex -Obinary $(PATH_BIN)/refapp.ihx $(PATH_BIN)/refapp.bin
-	@-$(ECHO)
 	@-$(ECHO) +++ creating on-calc app $(notdir $(PATH_BIN)/refapp.8xp)
 	@-$(MV) $(PATH_BIN)/refapp.bin refapp.bin
 	@-$(PYTHON) binpac8x.py refapp.bin
 	@-$(MV) refapp.bin $(PATH_BIN)/refapp.bin
 	@-$(MV) refapp.8xp $(PATH_BIN)/refapp.8xp
-	@-$(ECHO)
 
 
 ##############################################################################80
-# Clean Rule
+# Clean rule
 ##############################################################################80
 
 .PHONY: clean
 clean:
+	@-$(ECHO)
 	@-$(ECHO) +++ cleaning all
 	@-$(MKDIR) -p $(PATH_BIN)
 	@-$(MKDIR) -p $(PATH_OBJ)

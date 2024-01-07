@@ -4,6 +4,7 @@
 //
 
 #include <app/app_util.h>
+#include <startup/clock.h>
 
 static void app_led_on (void);
 static void app_led_off(void);
@@ -15,26 +16,40 @@ void main(void)
 
   bool exit_flag = false;
 
+  uint8_t current_tick = clock_seconds_get();
+
   for(;;)
   {
     app_led_clr();
     app_led_on();
 
-    for(volatile uint_fast16_t   i = (uint_fast16_t) UINT16_C(0x0);
-                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == false));
-                               ++i) { ; }
+    uint8_t next_tick;
+
+    while
+    (
+         ((next_tick = clock_seconds_get()) == current_tick)
+      && ((exit_flag = app_util_wants_exit()) == false)
+    ) { ; }
 
     if(exit_flag) { break; }
+
+    current_tick = next_tick;
 
     app_led_clr();
     app_led_off();
 
-    for(volatile uint_fast16_t   i = (uint_fast16_t) UINT16_C(0x0);
-                               ((i < (uint_fast16_t) UINT16_C(0x0F80)) && ((exit_flag = app_util_wants_exit()) == false));
-                               ++i) { ; }
+    while
+    (
+         ((next_tick = clock_seconds_get()) == current_tick)
+      && ((exit_flag = app_util_wants_exit()) == false)
+    ) { ; }
 
     if(exit_flag) { break; }
+
+    current_tick = next_tick;
   }
+
+  clock_seconds_stop();
 
   // Exit the Application and return to the home screen
   // using the JForceCmdNoChar function. See also page 16

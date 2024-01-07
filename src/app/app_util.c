@@ -3,9 +3,8 @@
 //  Distributed under The Unlicense
 //
 
-#include <stdbool.h>
-
 #include <app/app_util.h>
+#include <startup/clock.h>
 
 static bool app_util_check_crt0(void);
 
@@ -21,6 +20,8 @@ void app_util_init(void)
 
   __asm__("rst 0x28\n" ".dw #0x4540\n");
   __asm__("rst 0x28\n" ".dw #0x4558\n");
+
+  clock_seconds_start();
 }
 
 bool app_util_wants_exit(void)

@@ -21,8 +21,13 @@ The ASCII-text _ON_/_OFF_ is written on the calculator screen.
 Text is used since there is no actual LED present on the calculator-target system.
 This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
 
-The blinky _ON_/_OFF_ toggle-frequency has been empirically tuned to about ${\sim}{\frac{1}{2}}Hz$.
-The blinky _ON_/_OFF_ text messages are printed at row $2$, column $7$.
+The blinky _ON_/_OFF_ timebase is derived from a $1s$ tick,
+resulting in a toggle-frequency of ${\sim}{\frac{1}{2}}Hz$.
+The underlying timer resides on `port 0x45`. It is only available on the TI-84,
+not the TI-83.
+
+The blinky _ON_/_OFF_ text messages are printed
+at row $2$, column $7$.
 
 A skinny `main()` subroutine in the soruce file
 [`app_led.c`](./src/app/app_led.c) controls the toggling.
