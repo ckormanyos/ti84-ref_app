@@ -39,9 +39,6 @@
     <None Include="..\src\startup\clock.c">
       <Filter>src\startup</Filter>
     </None>
-    <None Include="..\src\startup\ti83plus.inc">
-      <Filter>src\startup</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\app\app_led.c">
