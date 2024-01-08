@@ -39,7 +39,7 @@ There is minimal use of assembly for startup and to interface with
 
 Execution:
   - After build, locate `bin/refapp.8xp`.
-  - Drag `refapp-8xp` onto the calculator using the standard method with [TI Connect version 4](https://education.ti.com/en/software/details/en/B59F6C83468C4574ABFEE93D2BC3F807/swticonnectsoftware). Important: use version 4 for the TI-84 Plus.
+  - Drag `refapp.8xp` onto the calculator using the standard method with [TI Connect version 4](https://education.ti.com/en/software/details/en/B59F6C83468C4574ABFEE93D2BC3F807/swticonnectsoftware). Important: use version 4 for the TI-84 Plus.
   - The on-calculator name of the program is `REFAPP`.
   - To start the program, use the usual `Asm(prgm)` option found in the `CATALOG` menu and select the `REFAPP` program.
   - To exit the blinky _ON_/_OFF_ show, press the enter key.
@@ -92,9 +92,27 @@ TI-84 Plus calculator purchased years ago from a commercial retailer.
 
 Continuous integration is performed on GHA using an ubuntu-latest runner.
 The [workflow run](./.github/workflows/ti84-ref_app.yml)
-builds the application and verifies the presence of `bin/refapp-8xp`.
+builds the application and verifies the presence of `bin/refapp.8xp`.
 
 ## Aditional Information
+
+### Reservations Regarding Origins
+
+Please use at your own discretion and observe also
+the [license](./LICENSE) details.
+
+Some of this software has been reverse engineered
+from other projects or terse technical notes.
+In addition, the software writes to calculator `ports`,
+such as `port 0x41`.
+
+Personally. I do not consider this to be a $100\\%$ sound basis
+for project reliability and/or stability.
+
+Nonetheless, empirical evidence shows a working,
+and fully/properly initialized C-language application.
+It provides a basis that seems to adhere to the established, common
+rules of modern C. Larger projects could be built or modelled from this.
 
 Origins
   - This project has been inspired by and influenced by numerous previous works, including (but not limited to) the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
@@ -104,9 +122,3 @@ Licensing
   - `Win*` ported `*nix` tools (including `cp.exe`, `echo.exe`, `mkdir.exe`, `mv.exe` and `rm.exe`) originate from [UnxTools](https://sourceforge.net/projects/unxutils) and include their own [distribution statements](./build/tools/UnxUtils).
   - The `Win*`-ported `objcopy.exe` originates from _nuwen_'s specially-built [standalone MinGW](https://nuwen.net/mingw.html).
   - The `Win*`-ported GNUmake is taken from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
-
-Some of this software has been reverse engineered
-from other projects or terse technical notes. In addition,
-the software writes to calculator `ports`, such as `port 0x41`.
-Please use at your own discretion and observe also
-the [license](./LICENSE) details.
