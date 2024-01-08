@@ -10,9 +10,9 @@
 
   #include <startup/asm_util.h>
 
-  uint8_t clock_seconds_get  (void) ATTRIBUTE_NAKED;
-  void    clock_seconds_start(void) ATTRIBUTE_NAKED;
-  void    clock_seconds_stop (void) ATTRIBUTE_NAKED;
+  void    clock_seconds_start(void);
+  void    clock_seconds_stop (void);
+  uint8_t clock_seconds_get  (void);
 
 
 #endif //CLOCK_2024_01_7_H
