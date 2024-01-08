@@ -12,7 +12,7 @@ ti84-ref_app
 
 `ckormanyos/ti84-ref_app` creates a fully functioning reference application
 for the z80-based TI-84 Plus monochrome graphics calculator. It runs in the
-open `Asm(prgm)` interface provided in the calculator's _CATALOG_ menu.
+open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
 It uses the TI-84's on-board Z80 processor.
 
 The reference application implements a small _blinky_ show.
@@ -41,7 +41,7 @@ Execution:
   - After build, locate `bin/refapp.8xp`.
   - Drag `refapp-8xp` onto the calculator using the standard method with [TI Connect version 4](https://education.ti.com/en/software/details/en/B59F6C83468C4574ABFEE93D2BC3F807/swticonnectsoftware). Important: use version 4 for the TI-84 Plus.
   - The on-calculator name of the program is `REFAPP`.
-  - To start the program, use the usual `Asm(prgm)` option found in the _CATALOG_ menu and select the `REFAPP` program.
+  - To start the program, use the usual `Asm(prgm)` option found in the `CATALOG` menu and select the `REFAPP` program.
   - To exit the blinky _ON_/_OFF_ show, press the enter key.
 
 The running programm in the toggle-state _ON_ is shown in the image below.
