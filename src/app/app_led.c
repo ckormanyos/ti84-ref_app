@@ -6,47 +6,41 @@
 #include <app/app_util.h>
 #include <startup/clock.h>
 
-static void app_led_on (void);
-static void app_led_off(void);
-static void app_led_clr(void);
+static void app_led_on   (void);
+static void app_led_off  (void);
+static void app_led_clr  (void);
+static void app_led_delay(void);
+
+static uint8_t app_led_current_tick;
+static bool    app_led_exit_flag;
 
 void main(void)
 {
   app_util_init();
 
-  bool exit_flag = false;
+  clock_seconds_start();
 
-  uint8_t current_tick = clock_seconds_get();
+  app_led_current_tick = clock_seconds_get();
 
   for(;;)
   {
     app_led_clr();
     app_led_on();
+    app_led_delay();
 
-    uint8_t next_tick;
-
-    while
-    (
-         ((next_tick = clock_seconds_get()) == current_tick)
-      && ((exit_flag = app_util_wants_exit()) == false)
-    ) { ; }
-
-    if(exit_flag) { break; }
-
-    current_tick = next_tick;
+    if(app_led_exit_flag)
+    {
+      break;
+    }
 
     app_led_clr();
     app_led_off();
+    app_led_delay();
 
-    while
-    (
-         ((next_tick = clock_seconds_get()) == current_tick)
-      && ((exit_flag = app_util_wants_exit()) == false)
-    ) { ; }
-
-    if(exit_flag) { break; }
-
-    current_tick = next_tick;
+    if(app_led_exit_flag)
+    {
+      break;
+    }
   }
 
   clock_seconds_stop();
@@ -106,4 +100,18 @@ static void app_led_clr(void)
   __asm__("rst 0x28\n" ".dw #0x4504\n");
   __asm__("ld a,#0x20\n");
   __asm__("rst 0x28\n" ".dw #0x4504\n");
+}
+
+static void app_led_delay(void)
+{
+  uint8_t next_tick;
+
+  do
+  {
+    next_tick         = clock_seconds_get();
+    app_led_exit_flag = app_util_wants_exit();
+  }
+  while((next_tick == app_led_current_tick) && (!app_led_exit_flag));
+
+  app_led_current_tick = next_tick;
 }

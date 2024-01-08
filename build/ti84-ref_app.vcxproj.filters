@@ -47,9 +47,6 @@
     <ClCompile Include="..\src\app\app_util.c">
       <Filter>src\app</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\app\app_dummy.c">
-      <Filter>src\app</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_util.h">
