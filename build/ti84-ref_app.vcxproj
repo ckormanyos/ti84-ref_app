@@ -15,10 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\app\app_led.c" />
-    <ClCompile Include="..\src\app\app_util.c" />
+    <ClCompile Include="..\src\app\app_led_util.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\app\app_util.h" />
+    <ClInclude Include="..\src\app\app_led_util.h" />
     <ClInclude Include="..\src\startup\asm_util.h" />
     <ClInclude Include="..\src\startup\clock.h" />
   </ItemGroup>

@@ -49,6 +49,10 @@ static uint8_t clock_seconds_get_port40(void) ATTRIBUTE_NAKED
   __asm__("in a, (0x40)\n");
   __asm__("ld h, a\n");
   __asm__("ret\n");
+
+  #if defined(_MSC_VER)
+  return (uint8_t) UINT8_C(0);
+  #endif
 }
 
 static void clock_seconds_do_start(void) ATTRIBUTE_NAKED
@@ -59,7 +63,7 @@ static void clock_seconds_do_start(void) ATTRIBUTE_NAKED
 
   // Ensure that the set command bit is off since its trtansition
   // to high will actually set the clock.
-  __asm__("ld  a, #0x1\n");
+  __asm__("ld a, #0x1\n");
   __asm__("out (0x40), a\n");
 
   // Set and start the clock.
@@ -88,4 +92,8 @@ static uint8_t clock_seconds_do_get(void) ATTRIBUTE_NAKED
   __asm__("in a, (0x45)\n");
   __asm__("ld h, a\n");
   __asm__("ret\n");
+
+  #if defined(_MSC_VER)
+  return (uint8_t) UINT8_C(0);
+  #endif
 }

@@ -44,12 +44,12 @@
     <ClCompile Include="..\src\app\app_led.c">
       <Filter>src\app</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\app\app_util.c">
+    <ClCompile Include="..\src\app\app_led_util.c">
       <Filter>src\app</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\app\app_util.h">
+    <ClInclude Include="..\src\app\app_led_util.h">
       <Filter>src\app</Filter>
     </ClInclude>
     <ClInclude Include="..\src\startup\asm_util.h">
