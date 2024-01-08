@@ -96,16 +96,17 @@ builds the application and verifies the presence of `bin/refapp-8xp`.
 
 ## Aditional Information
 
-### Origins
+Origins
+  - This project has been inspired by and influenced by numerous previous works, including (but not limited to) the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
 
-This project has been inspired by and influenced by numerous previous works,
-including (but not limited to)
-the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
-
-### Licencing
-
-Licensing notices:
+Licensing
   - The source code written for this repo (in the [`src`](./src)) directory is licensed under [_The_ _Unlicense_](./LICENSE).
   - `Win*` ported `*nix` tools (including `cp.exe`, `echo.exe`, `mkdir.exe`, `mv.exe` and `rm.exe`) originate from [UnxTools](https://sourceforge.net/projects/unxutils) and include their own [distribution statements](./build/tools/UnxUtils).
   - The `Win*`-ported `objcopy.exe` originates from _nuwen_'s specially-built [standalone MinGW](https://nuwen.net/mingw.html).
   - The `Win*`-ported GNUmake is taken from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
+
+Some of this software has been reverse engineered
+from other projects or terse technical notes. In addition,
+the software writes to calculator `ports`, such as `port 0x41`.
+Please use at your own discretion and observe also
+the [license](./LICENSE) details.
