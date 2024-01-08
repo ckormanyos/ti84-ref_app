@@ -61,7 +61,7 @@ static void clock_seconds_do_start(void) ATTRIBUTE_NAKED
   __asm__("xor a\n");
   __asm__("out (0x44), a\n");
 
-  // Ensure that the set command bit is off since its trtansition
+  // Ensure that the set command bit is off since its transition
   // to high will actually set the clock.
   __asm__("ld a, #0x1\n");
   __asm__("out (0x40), a\n");
