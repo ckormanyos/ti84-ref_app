@@ -8,9 +8,6 @@
 
   #if defined(_MSC_VER)
   #define __asm__(x)
-  #endif
-
-  #if defined(_MSC_VER)
   #define ATTRIBUTE_NAKED
   #else
   #define ATTRIBUTE_NAKED __naked
