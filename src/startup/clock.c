@@ -14,14 +14,6 @@ static void    clock_seconds_do_start   (void) ATTRIBUTE_NAKED;
 static void    clock_seconds_do_stop    (void) ATTRIBUTE_NAKED;
 static uint8_t clock_seconds_do_get     (void) ATTRIBUTE_NAKED;
 
-void _clock(void) ATTRIBUTE_NAKED
-{
-  // Mysterious _clock() method.
-
-  __asm__("ld a, #0x2\n");
-  __asm__("ret\n");
-}
-
 void clock_seconds_start(void)
 {
   const uint8_t clock_seconds_run_bit_value = (uint8_t) (clock_seconds_get_port40() & (uint8_t) UINT8_C(1));
@@ -59,15 +51,17 @@ static void clock_seconds_do_start(void) ATTRIBUTE_NAKED
 {
   // Reset the lower byte of the 32-bit clock.
   __asm__("xor a\n");
-  __asm__("out (0x44), a\n");
+  __asm__("out (0x41), a\n");
 
   // Ensure that the set command bit is off since its transition
   // to high will actually set the clock.
-  __asm__("ld a, #0x1\n");
+  __asm__("in a, (0x40)\n");
+  __asm__("and a, #0xFC\n");
+  __asm__("or a, #0x1\n");
   __asm__("out (0x40), a\n");
 
   // Set and start the clock.
-  __asm__("ld a, #0x3\n");
+  __asm__("or a, #0x3\n");
   __asm__("out (0x40), a\n");
   __asm__("ret\n");
 }
@@ -75,7 +69,8 @@ static void clock_seconds_do_start(void) ATTRIBUTE_NAKED
 static void clock_seconds_do_stop(void) ATTRIBUTE_NAKED
 {
   // Stop the clock.
-  __asm__("ld a, #0x0\n");
+  __asm__("in a, (0x40)\n");
+  __asm__("and a, #0xFE\n");
   __asm__("out (0x40), a\n");
   __asm__("ret\n");
 }

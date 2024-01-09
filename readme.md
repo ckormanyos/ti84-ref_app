@@ -23,8 +23,9 @@ This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
 
 The blinky _ON_/_OFF_ timebase is derived from a $1s$ tick,
 resulting in a toggle-frequency of ${\sim}{\frac{1}{2}}Hz$.
-The underlying timer resides on `port 0x45`. It is only available on the TI-84,
-not the TI-83.
+The underlying 32-bit timer resides on ports `0x41`-`0x44`,
+where the lower byte at port `0x41` is used.
+This timer is only available on the TI-84, not the TI-83.
 
 The blinky _ON_/_OFF_ text messages are printed
 at row $2$, column $7$.
@@ -104,15 +105,16 @@ the [license](./LICENSE) details.
 Some of this software has been reverse engineered
 from other projects or terse technical notes.
 In addition, the software writes to calculator `ports`,
-such as `port 0x41`.
+such as ports `0x40` and `0x41`.
 
 Personally. I do not consider this to be a $100\\%$ sound basis
 for project reliability and/or stability.
 
 Nonetheless, empirical evidence shows a working,
 and fully/properly initialized C-language application.
-It provides a basis that seems to adhere to the established, common
-rules of modern C. Larger projects could be built or modelled from this.
+It provides a basis that seems to adhere to the established,
+common rules of modern C. Larger projects could be built or modelled
+from this.
 
 Origins
   - This project has been inspired by and influenced by numerous previous works, including (but not limited to) the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
