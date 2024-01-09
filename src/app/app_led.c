@@ -4,7 +4,7 @@
 //
 
 #include <app/app_led_util.h>
-#include <startup/clock.h>
+#include <mcal/mcal_gpt.h>
 
 static void app_led_on   (void);
 static void app_led_off  (void);
@@ -18,9 +18,9 @@ void main(void)
 {
   app_led_util_init();
 
-  clock_seconds_start();
+  mcal_gpt_init();
 
-  app_led_current_tick = clock_seconds_get();
+  app_led_current_tick = mcal_gpt_get_time_elapsed();
 
   for(;;)
   {
@@ -43,7 +43,7 @@ void main(void)
     }
   }
 
-  clock_seconds_stop();
+  mcal_gpt_de_init();
 
   // Exit the Application and return to the home screen
   // using the JForceCmdNoChar function. See also page 16
@@ -82,7 +82,7 @@ static void app_led_delay(void)
 
   do
   {
-    next_tick         = clock_seconds_get();
+    next_tick         = mcal_gpt_get_time_elapsed();
     app_led_exit_flag = app_led_util_wants_exit();
   }
   while((next_tick == app_led_current_tick) && (!app_led_exit_flag));

@@ -4,7 +4,6 @@
 //
 
 #include <app/app_led_util.h>
-#include <startup/clock.h>
 
 void app_led_util_putc(char c) ATTRIBUTE_NAKED
 {

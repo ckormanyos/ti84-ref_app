@@ -133,10 +133,10 @@ $(PATH_BIN)/refapp.8xp :
 	@-$(AS) $(AFLAGS) -c -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/startup/crt0.s
 	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led_util.c)
 	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_led_util.rel $(PATH_SRC)/app/app_led_util.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/startup/clock.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/clock.rel $(PATH_SRC)/startup/clock.c
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/mcal/mcal_gpt.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/mcal_gpt.rel $(PATH_SRC)/mcal/mcal_gpt.c
 	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
-	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_led.c $(PATH_OBJ)/app_led_util.rel $(PATH_OBJ)/clock.rel $(PATH_OBJ)/crt0.rel
+	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_led.c $(PATH_OBJ)/app_led_util.rel $(PATH_OBJ)/crt0.rel $(PATH_OBJ)/mcal_gpt.rel
 	@-$(ECHO) +++ creating binary $(notdir $(PATH_BIN)/refapp.bin)
 	@-$(OBJCOPY) -Iihex -Obinary $(PATH_BIN)/refapp.ihx $(PATH_BIN)/refapp.bin
 	@-$(ECHO) +++ creating on-calc app $(notdir $(PATH_BIN)/refapp.8xp)
