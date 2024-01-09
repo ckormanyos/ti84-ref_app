@@ -28,6 +28,5 @@
   void app_led_util_home1     (void)   ATTRIBUTE_NAKED;
   void app_led_util_home2     (void)   ATTRIBUTE_NAKED;
   void app_led_util_init      (void)   ATTRIBUTE_NAKED;
-  bool app_led_util_wants_exit(void)   ATTRIBUTE_NAKED;
 
-#endif // APP_UTIL_2024_01_07_H
+#endif // APP_LED_UTIL_2024_01_07_H

@@ -15,9 +15,9 @@ for the z80-based TI-84 Plus monochrome graphics calculator. It runs in the
 open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
 It uses the TI-84's on-board Z80 processor.
 
-The reference application implements parallel _blinky_/_hello_-_world_ test-shows.
+The reference application implements parallel _blinky_ and _hello_-_world_ test-shows.
 A minimalistic cooperative multitasking scheduler controls
-the presentation of ASCII-text messages.
+the presentation of the associated ASCII-text messages.
 
 The text-shows _ON_/_OFF_ and _hello_/_world_ are written on the calculator screen.
 Text is used since there is no actual LED present on the calculator-target system.
@@ -48,7 +48,7 @@ Execution:
   - To start the program, use the usual `Asm(prgm)` option found in the `CATALOG` menu and select the `REFAPP` program.
   - To exit the blinky _ON_/_OFF_ show, press the enter key.
 
-The running programm in the toggle-state _ON_ is shown in the image below.
+The running programm in the display-state _ON_/_hello_ is shown in the image below.
 
 ![](./images/ti84-ref_app.jpg)
 
