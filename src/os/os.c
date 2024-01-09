@@ -5,10 +5,22 @@
 
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #include <mcal/mcal_gpt.h>
 #include <os/os.h>
 #include <startup/asm_util.h>
+
+typedef void(*os_function_type)(void);
+
+typedef struct os_task_control_block
+{
+  os_function_type p_init;
+  os_function_type p_func;
+  uint8_t          cycle;
+  uint8_t          timer;
+}
+os_task_control_block;
 
 #define OS_COUNTOF(a) (size_t) (sizeof(a) / sizeof(a[(size_t) 0U]))
 
@@ -16,15 +28,15 @@
 
 extern void app_led_init(void);
 extern void app_led_task(void);
-extern void app_acc_init(void);
-extern void app_acc_task(void);
+extern void app_hello_init(void);
+extern void app_hello_task(void);
 
 static bool os_wants_exit(void) ATTRIBUTE_NAKED;
 
 static os_task_control_block os_task_list[2U] =
 {
-  { app_led_init, app_led_task, (uint8_t) UINT8_C(1), (uint8_t) UINT8_C(0) },
-  { app_acc_init, app_acc_task, (uint8_t) UINT8_C(7), (uint8_t) UINT8_C(0) }
+  { app_led_init,   app_led_task,   (uint8_t) UINT8_C(1), (uint8_t) UINT8_C(0) },
+  { app_hello_init, app_hello_task, (uint8_t) UINT8_C(3), (uint8_t) UINT8_C(0) }
 };
 
 void os_init(void)

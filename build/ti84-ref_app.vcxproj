@@ -13,7 +13,7 @@
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\app\app_acc.c" />
+    <ClCompile Include="..\src\app\app_hello.c" />
     <ClCompile Include="..\src\app\app_led.c" />
     <ClCompile Include="..\src\app\app_led_util.c" />
     <ClCompile Include="..\src\app\app_main.c" />

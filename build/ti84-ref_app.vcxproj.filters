@@ -56,7 +56,7 @@
     <ClCompile Include="..\src\os\os.c">
       <Filter>src\os</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\app\app_acc.c">
+    <ClCompile Include="..\src\app\app_hello.c">
       <Filter>src\app</Filter>
     </ClCompile>
     <ClCompile Include="..\src\app\app_main.c">

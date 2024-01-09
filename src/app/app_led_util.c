@@ -13,12 +13,23 @@ void app_led_util_putc(char c) ATTRIBUTE_NAKED
   __asm__("ret\n");
 }
 
-void app_led_util_home(void) ATTRIBUTE_NAKED
+void app_led_util_home1(void) ATTRIBUTE_NAKED
 {
   __asm__("ld b,#0x02\n");
   __asm__("ld a,b\n");
   __asm__("ld (#0x844B), a\n");
-  __asm__("ld b,#0x07\n");
+  __asm__("ld b,#0x06\n");
+  __asm__("ld a,b\n");
+  __asm__("ld (#0x844C), a\n");
+  __asm__("ret\n");
+}
+
+void app_led_util_home2(void) ATTRIBUTE_NAKED
+{
+  __asm__("ld b,#0x03\n");
+  __asm__("ld a,b\n");
+  __asm__("ld (#0x844B), a\n");
+  __asm__("ld b,#0x06\n");
   __asm__("ld a,b\n");
   __asm__("ld (#0x844C), a\n");
   __asm__("ret\n");
