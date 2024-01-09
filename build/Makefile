@@ -131,12 +131,18 @@ $(PATH_BIN)/refapp.8xp :
 	@-$(ECHO)
 	@-$(ECHO) +++ assembling $(notdir $(PATH_SRC)/startup/crt0.s)
 	@-$(AS) $(AFLAGS) -c -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/startup/crt0.s
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led_util.c)
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_hello.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_hello.rel $(PATH_SRC)/app/app_hello.c
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_led.rel $(PATH_SRC)/app/app_led.c
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/mcal/app/app_led_util.c)
 	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_led_util.rel $(PATH_SRC)/app/app_led_util.c
 	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/mcal/mcal_gpt.c)
 	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/mcal_gpt.rel $(PATH_SRC)/mcal/mcal_gpt.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
-	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_led.c $(PATH_OBJ)/app_led_util.rel $(PATH_OBJ)/crt0.rel $(PATH_OBJ)/mcal_gpt.rel
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/os/os.c)
+	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/os.rel $(PATH_SRC)/os/os.c
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_main.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
+	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_main.c $(PATH_OBJ)/app_led.rel $(PATH_OBJ)/app_led_util.rel $(PATH_OBJ)/app_hello.rel $(PATH_OBJ)/crt0.rel $(PATH_OBJ)/mcal_gpt.rel $(PATH_OBJ)/os.rel
 	@-$(ECHO) +++ creating binary $(notdir $(PATH_BIN)/refapp.bin)
 	@-$(OBJCOPY) -Iihex -Obinary $(PATH_BIN)/refapp.ihx $(PATH_BIN)/refapp.bin
 	@-$(ECHO) +++ creating on-calc app $(notdir $(PATH_BIN)/refapp.8xp)

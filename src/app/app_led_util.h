@@ -3,8 +3,8 @@
 //  Distributed under The Unlicense
 //
 
-#ifndef APP_LED_UTIL_2024_01_7_H
-  #define APP_LED_UTIL_2024_01_7_H
+#ifndef APP_LED_UTIL_2024_01_07_H
+  #define APP_LED_UTIL_2024_01_07_H
 
   #include <stdbool.h>
   #include <stdint.h>
@@ -25,8 +25,9 @@
   // _PutC             #0x4504
 
   void app_led_util_putc      (char c) ATTRIBUTE_NAKED;
-  void app_led_util_home      (void)   ATTRIBUTE_NAKED;
+  void app_led_util_home1     (void)   ATTRIBUTE_NAKED;
+  void app_led_util_home2     (void)   ATTRIBUTE_NAKED;
   void app_led_util_init      (void)   ATTRIBUTE_NAKED;
   bool app_led_util_wants_exit(void)   ATTRIBUTE_NAKED;
 
-#endif // APP_UTIL_2024_01_7_H
+#endif // APP_UTIL_2024_01_07_H
