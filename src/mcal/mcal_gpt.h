@@ -3,16 +3,13 @@
 //  Distributed under The Unlicense
 //
 
-#ifndef CLOCK_2024_01_7_H
-  #define CLOCK_2024_01_7_H
+#ifndef MCAL_GPT_2024_01_7_H
+  #define MCAL_GPT_2024_01_7_H
 
   #include <stdint.h>
 
-  #include <startup/asm_util.h>
-
-  void    clock_seconds_start(void);
-  void    clock_seconds_stop (void);
-  uint8_t clock_seconds_get  (void);
-
+  void    mcal_gpt_init            (void);
+  void    mcal_gpt_de_init         (void);
+  uint8_t mcal_gpt_get_time_elapsed(void);
 
 #endif //CLOCK_2024_01_7_H

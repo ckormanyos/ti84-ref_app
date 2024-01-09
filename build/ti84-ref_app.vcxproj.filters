@@ -22,6 +22,9 @@
     <Filter Include="src\app">
       <UniqueIdentifier>{d5a1a826-e7d1-4bcc-9314-bdaadc6de10f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\mcal">
+      <UniqueIdentifier>{40bb87ba-a6ab-435a-aa98-6a436693e6ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile">
@@ -36,9 +39,6 @@
     <None Include="..\src\startup\crt0.s">
       <Filter>src\startup</Filter>
     </None>
-    <None Include="..\src\startup\clock.c">
-      <Filter>src\startup</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\app\app_led.c">
@@ -46,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="..\src\app\app_led_util.c">
       <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mcal\mcal_gpt.c">
+      <Filter>src\mcal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,8 +58,8 @@
     <ClInclude Include="..\src\startup\asm_util.h">
       <Filter>src\startup</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\startup\clock.h">
-      <Filter>src\startup</Filter>
+    <ClInclude Include="..\src\mcal\mcal_gpt.h">
+      <Filter>src\mcal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

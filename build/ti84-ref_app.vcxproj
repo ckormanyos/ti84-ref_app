@@ -10,17 +10,17 @@
     <None Include="..\.github\workflows\ti84-ref_app.yml" />
     <None Include="..\readme.md" />
     <None Include="..\src\startup\crt0.s" />
-    <None Include="..\src\startup\clock.c" />
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\app\app_led.c" />
     <ClCompile Include="..\src\app\app_led_util.c" />
+    <ClCompile Include="..\src\mcal\mcal_gpt.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_led_util.h" />
+    <ClInclude Include="..\src\mcal\mcal_gpt.h" />
     <ClInclude Include="..\src\startup\asm_util.h" />
-    <ClInclude Include="..\src\startup\clock.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
