@@ -3,8 +3,8 @@
 //  Distributed under The Unlicense
 //
 
-#ifndef MCAL_GPT_2024_01_7_H
-  #define MCAL_GPT_2024_01_7_H
+#ifndef MCAL_GPT_2024_01_07_H
+  #define MCAL_GPT_2024_01_07_H
 
   #include <stdint.h>
 
@@ -12,4 +12,4 @@
   void    mcal_gpt_de_init         (void);
   uint8_t mcal_gpt_get_time_elapsed(void);
 
-#endif //CLOCK_2024_01_7_H
+#endif // MCAL_GPT_2024_01_07_H

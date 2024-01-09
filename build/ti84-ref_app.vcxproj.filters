@@ -25,6 +25,9 @@
     <Filter Include="src\mcal">
       <UniqueIdentifier>{40bb87ba-a6ab-435a-aa98-6a436693e6ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\os">
+      <UniqueIdentifier>{56938916-c213-486a-b3b1-22d39f753f45}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile">
@@ -50,6 +53,15 @@
     <ClCompile Include="..\src\mcal\mcal_gpt.c">
       <Filter>src\mcal</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\os\os.c">
+      <Filter>src\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app\app_acc.c">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app\app_main.c">
+      <Filter>src\app</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\app\app_led_util.h">
@@ -60,6 +72,9 @@
     </ClInclude>
     <ClInclude Include="..\src\mcal\mcal_gpt.h">
       <Filter>src\mcal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\os\os.h">
+      <Filter>src\os</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
