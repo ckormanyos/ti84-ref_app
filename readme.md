@@ -63,6 +63,7 @@ The build system:
   - The build system uses GNUmake with a straighforward [`Makefile`](./build/Makefile).
   - The build system is supported on both `Win*` and `*nix`.
   - The `Win*`-build requires a small selection of ported `*nix` tools. These are included in the [`wbin`](./build/tools/UnxUtils/usr/local/wbin) directory.
+  - The on-calculator image is packed by [BinPac8x v1.2](https://www.cemetech.net/news/2010/6/389/_/binpac8x-v12).
   - Build results including HEX-File and the on-calculator image `refapp.8xp` are placed in the `bin`-directory.
 
 ### Build on `Win*`
