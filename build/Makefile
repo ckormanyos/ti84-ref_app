@@ -145,7 +145,7 @@ $(PATH_BIN)/refapp.8xp :
 	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_main.c $(PATH_OBJ)/app_led.rel $(PATH_OBJ)/app_led_util.rel $(PATH_OBJ)/app_hello.rel $(PATH_OBJ)/crt0.rel $(PATH_OBJ)/mcal_gpt.rel $(PATH_OBJ)/os.rel
 	@-$(ECHO) +++ creating binary $(notdir $(PATH_BIN)/refapp.bin)
 	@-$(OBJCOPY) -Iihex -Obinary $(PATH_BIN)/refapp.ihx $(PATH_BIN)/refapp.bin
-	@-$(ECHO) +++ creating on-calc app $(notdir $(PATH_BIN)/refapp.8xp)
+	@-$(ECHO) +++ creating on-calc image with BinPac8x v1.2 $(notdir $(PATH_BIN)/refapp.8xp)
 	@-$(MV) $(PATH_BIN)/refapp.bin refapp.bin
 	@-$(PYTHON) binpac8x.py refapp.bin
 	@-$(MV) refapp.bin $(PATH_BIN)/refapp.bin
