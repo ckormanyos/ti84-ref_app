@@ -127,7 +127,7 @@ from this.
 
 ### References
 
-  - _TI_-_83_ _Plus_ _System_ Routines_ _Third_ Release_ (Jan. 25, 2002), located [here](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf)
+  - _TI_-_83_ _Plus_ _System_ _Routines_, Third Release (Jan. 25, 2002), located [here](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf)
   - _SDCC_ _Compiler_ _User_ _Guide_, SDCC 4.4.0, Revision 14549 (Dec. 20, 2023), located [here](https://sdcc.sourceforge.net/doc/sdccman.pdf)
 
 ### Licensing
