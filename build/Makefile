@@ -92,12 +92,15 @@ AFLAGS         := -p                       \
                   -g
 
 
-CFLAGS         := --no-std-crt0            \
+CFLAGS         := --Werror                 \
+                  --std-c17                \
+                  -mz80                    \
+                  --no-std-crt0            \
                   --code-loc 0x9D9B        \
                   --data-loc 0x0           \
-                  --std-sdcc17             \
-                  -mz80                    \
+                  --fsigned-char           \
                   --reserve-regs-iy        \
+                  --vc                     \
                   -I$(PATH_SRC)
 
 
@@ -121,31 +124,46 @@ version:
 	@-$(ECHO)
 	@-$(ECHO) +++ print GNUmake version
 	@-$(GNUMAKE) -v
+	@-$(ECHO)
+
+
+##############################################################################80
+# file lists/paths
+# VPATH is required for GNUmake to find the C and assembly source files
+##############################################################################80
+
+SUFFIX_OBJ     := rel
+
+FILES_PRJ      := $(PATH_SRC)/app/app_hello.c              \
+                  $(PATH_SRC)/app/app_led.c                \
+                  $(PATH_SRC)/app/app_led_util.c           \
+                  $(PATH_SRC)/mcal/mcal_gpt.c              \
+                  $(PATH_SRC)/os/os.c                      \
+                  $(PATH_SRC)/startup/crt0.s
+
+FILES_OBJ      := $(addsuffix .$(SUFFIX_OBJ),$(addprefix $(PATH_OBJ)/,$(basename $(notdir $(FILES_PRJ)))))
+
+VPATH          := $(sort $(dir $(FILES_PRJ)) $(PATH_OBJ))
 
 
 ##############################################################################80
 # compile/link/hex-manip rules
 ##############################################################################80
 
-$(PATH_BIN)/refapp.8xp :
-	@-$(ECHO)
-	@-$(ECHO) +++ assembling $(notdir $(PATH_SRC)/startup/crt0.s)
-	@-$(AS) $(AFLAGS) -c -o $(PATH_OBJ)/crt0.rel $(PATH_SRC)/startup/crt0.s
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_hello.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_hello.rel $(PATH_SRC)/app/app_hello.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_led.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_led.rel $(PATH_SRC)/app/app_led.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/mcal/app/app_led_util.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/app_led_util.rel $(PATH_SRC)/app/app_led_util.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/mcal/mcal_gpt.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/mcal_gpt.rel $(PATH_SRC)/mcal/mcal_gpt.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/os/os.c)
-	@-$(CC) $(CFLAGS) -c -o $(PATH_OBJ)/os.rel $(PATH_SRC)/os/os.c
-	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_main.c) and linking/extracting to $(notdir $(PATH_BIN)/refapp.ihx)
-	@-$(CC) $(CFLAGS) -o $(PATH_BIN)/refapp.ihx $(PATH_SRC)/app/app_main.c $(PATH_OBJ)/app_led.rel $(PATH_OBJ)/app_led_util.rel $(PATH_OBJ)/app_hello.rel $(PATH_OBJ)/crt0.rel $(PATH_OBJ)/mcal_gpt.rel $(PATH_OBJ)/os.rel
-	@-$(ECHO) +++ creating binary $(notdir $(PATH_BIN)/refapp.bin)
+$(PATH_BIN)/refapp.ihx : $(FILES_OBJ)
+	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_main.c) and linking/extracting to $(notdir $@)
+	@-$(CC) $(CFLAGS) -o $@ $(PATH_SRC)/app/app_main.c $(FILES_OBJ)
+
+
+##############################################################################80
+# hex-manip rules
+##############################################################################80
+
+
+$(PATH_BIN)/refapp.8xp : $(PATH_BIN)/refapp.ihx
+	@-$(ECHO) +++ creating binary file $(notdir $(PATH_BIN)/refapp.bin)
 	@-$(OBJCOPY) -Iihex -Obinary $(PATH_BIN)/refapp.ihx $(PATH_BIN)/refapp.bin
-	@-$(ECHO) +++ creating on-calc image with BinPac8x v1.2 $(notdir $(PATH_BIN)/refapp.8xp)
+	@-$(ECHO) +++ packing on-calc image $(notdir $(PATH_BIN)/refapp.8xp) with BinPac8x
 	@-$(MV) $(PATH_BIN)/refapp.bin refapp.bin
 	@-$(PYTHON) binpac8x.py refapp.bin
 	@-$(MV) refapp.bin $(PATH_BIN)/refapp.bin
@@ -153,7 +171,7 @@ $(PATH_BIN)/refapp.8xp :
 
 
 ##############################################################################80
-# Clean rule
+# clean rule
 ##############################################################################80
 
 .PHONY: clean
@@ -166,3 +184,18 @@ clean:
 	@-$(RM) -r $(PATH_OBJ) 2>$(NULL_DEVICE)
 	@-$(MKDIR) -p $(PATH_BIN)
 	@-$(MKDIR) -p $(PATH_OBJ)
+
+
+##############################################################################80
+# pattern rules
+##############################################################################80
+
+.SUFFIXES:
+
+$(PATH_OBJ)/%.$(SUFFIX_OBJ) : %.c
+	@-$(ECHO) +++ compiling $(notdir $<) to $(notdir $@)
+	@-$(CC) $(CFLAGS) -c -o $@ $<
+
+$(PATH_OBJ)/%.$(SUFFIX_OBJ) : %.s
+	@-$(ECHO) +++ assembling $(notdir $<) to $(notdir $@)
+	@-$(AS) $(AFLAGS) -c -o $@ $<
