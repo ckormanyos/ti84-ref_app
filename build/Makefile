@@ -135,8 +135,8 @@ version:
 SUFFIX_OBJ     := rel
 
 FILES_PRJ      := $(PATH_SRC)/app/app_hello.c              \
+                  $(PATH_SRC)/app/app_lcd_util.c           \
                   $(PATH_SRC)/app/app_led.c                \
-                  $(PATH_SRC)/app/app_led_util.c           \
                   $(PATH_SRC)/mcal/mcal_gpt.c              \
                   $(PATH_SRC)/os/os.c                      \
                   $(PATH_SRC)/startup/crt0.s

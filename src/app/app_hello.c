@@ -5,7 +5,7 @@
 
 #include <stdbool.h>
 
-#include <app/app_led_util.h>
+#include <app/app_lcd_util.h>
 
 static void app_hello_hello(void);
 static void app_hello_world(void);
@@ -29,31 +29,19 @@ void app_hello_task(void)
 
 static void app_hello_hello(void)
 {
-  app_led_util_home2();
-  app_led_util_putc('h');
-  app_led_util_putc('e');
-  app_led_util_putc('l');
-  app_led_util_putc('l');
-  app_led_util_putc('o');
+  app_lcd_util_home2();
+  app_lcd_util_puts("hello");
 }
 
 static void app_hello_world(void)
 {
-  app_led_util_home2();
-  app_led_util_putc('w');
-  app_led_util_putc('o');
-  app_led_util_putc('r');
-  app_led_util_putc('l');
-  app_led_util_putc('d');
+  app_lcd_util_home2();
+  app_lcd_util_puts("world");
 }
 
 static void app_hello_clear(void)
 {
-  app_led_util_home2();
-  app_led_util_putc(' ');
-  app_led_util_putc(' ');
-  app_led_util_putc(' ');
-  app_led_util_putc(' ');
-  app_led_util_putc(' ');
+  app_lcd_util_home2();
+  app_lcd_util_puts("     ");
 }
 

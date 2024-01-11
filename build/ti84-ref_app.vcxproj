@@ -15,13 +15,13 @@
   <ItemGroup>
     <ClCompile Include="..\src\app\app_hello.c" />
     <ClCompile Include="..\src\app\app_led.c" />
-    <ClCompile Include="..\src\app\app_led_util.c" />
+    <ClCompile Include="..\src\app\app_lcd_util.c" />
     <ClCompile Include="..\src\app\app_main.c" />
     <ClCompile Include="..\src\mcal\mcal_gpt.c" />
     <ClCompile Include="..\src\os\os.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\app\app_led_util.h" />
+    <ClInclude Include="..\src\app\app_lcd_util.h" />
     <ClInclude Include="..\src\mcal\mcal_gpt.h" />
     <ClInclude Include="..\src\os\os.h" />
     <ClInclude Include="..\src\startup\asm_util.h" />

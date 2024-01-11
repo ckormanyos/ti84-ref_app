@@ -24,9 +24,10 @@
   // curCol            #0x844C
   // _PutC             #0x4504
 
-  void app_led_util_putc      (char c) ATTRIBUTE_NAKED;
-  void app_led_util_home1     (void)   ATTRIBUTE_NAKED;
-  void app_led_util_home2     (void)   ATTRIBUTE_NAKED;
-  void app_led_util_init      (void)   ATTRIBUTE_NAKED;
+  void app_lcd_util_puts(const char* p_str);
+
+  void app_lcd_util_home1(void)   ATTRIBUTE_NAKED;
+  void app_lcd_util_home2(void)   ATTRIBUTE_NAKED;
+  void app_lcd_util_init (void)   ATTRIBUTE_NAKED;
 
 #endif // APP_LED_UTIL_2024_01_07_H

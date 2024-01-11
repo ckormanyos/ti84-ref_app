@@ -3,7 +3,7 @@
 //  Distributed under The Unlicense
 //
 
-#include <app/app_led_util.h>
+#include <app/app_lcd_util.h>
 
 static void app_led_on (void);
 static void app_led_off(void);
@@ -13,7 +13,7 @@ static bool app_led_is_on;
 
 void app_led_init(void)
 {
-  app_led_util_init();
+  app_lcd_util_init();
 }
 
 void app_led_task(void)
@@ -27,24 +27,18 @@ void app_led_task(void)
 
 static void app_led_on(void)
 {
-  app_led_util_home1();
-  app_led_util_putc('O');
-  app_led_util_putc('N');
-  app_led_util_putc(' ');
+  app_lcd_util_home1();
+  app_lcd_util_puts("ON ");
 }
 
 static void app_led_off(void)
 {
-  app_led_util_home1();
-  app_led_util_putc('O');
-  app_led_util_putc('F');
-  app_led_util_putc('F');
+  app_lcd_util_home1();
+  app_lcd_util_puts("OFF");
 }
 
 static void app_led_clr(void)
 {
-  app_led_util_home1();
-  app_led_util_putc(' ');
-  app_led_util_putc(' ');
-  app_led_util_putc(' ');
+  app_lcd_util_home1();
+  app_lcd_util_puts("   ");
 }
