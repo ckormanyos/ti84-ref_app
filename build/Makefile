@@ -129,7 +129,7 @@ version:
 
 ##############################################################################80
 # file lists/paths
-# VPATH is required for GNUmake to find the C and assembly source files
+# VPATH is used by GNUmake to find the C and assembly source files.
 ##############################################################################80
 
 SUFFIX_OBJ     := rel
@@ -147,7 +147,7 @@ VPATH          := $(sort $(dir $(FILES_PRJ)) $(PATH_OBJ))
 
 
 ##############################################################################80
-# compile/link/hex-manip rules
+# compile/link
 ##############################################################################80
 
 $(PATH_BIN)/refapp.ihx : $(FILES_OBJ)
@@ -188,6 +188,7 @@ clean:
 
 ##############################################################################80
 # pattern rules
+# Delete default suffixes with .SUFFIXES. We do not use implicit rules.
 ##############################################################################80
 
 .SUFFIXES:

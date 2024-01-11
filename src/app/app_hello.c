@@ -7,12 +7,7 @@
 
 #include <app/app_lcd_util.h>
 
-static void app_hello_hello(void);
-static void app_hello_world(void);
-static void app_hello_clear(void);
-
 static bool app_hello_is_hello;
-
 
 void app_hello_init(void)
 {
@@ -20,28 +15,12 @@ void app_hello_init(void)
 
 void app_hello_task(void)
 {
-  app_hello_clear();
+  app_lcd_util_row((uint8_t) UINT8_C(3));
+  app_lcd_util_col((uint8_t) UINT8_C(6));
+  app_lcd_util_puts("     ");
+  app_lcd_util_col((uint8_t) UINT8_C(6));
 
-  (!app_hello_is_hello) ? app_hello_hello() : app_hello_world();
+  (!app_hello_is_hello) ? app_lcd_util_puts("hello") : app_lcd_util_puts("world");
 
   app_hello_is_hello = (bool) (!app_hello_is_hello);
 }
-
-static void app_hello_hello(void)
-{
-  app_lcd_util_home2();
-  app_lcd_util_puts("hello");
-}
-
-static void app_hello_world(void)
-{
-  app_lcd_util_home2();
-  app_lcd_util_puts("world");
-}
-
-static void app_hello_clear(void)
-{
-  app_lcd_util_home2();
-  app_lcd_util_puts("     ");
-}
-
