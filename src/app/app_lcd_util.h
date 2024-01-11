@@ -26,8 +26,9 @@
 
   void app_lcd_util_puts(const char* p_str);
 
-  void app_lcd_util_home1(void)   ATTRIBUTE_NAKED;
-  void app_lcd_util_home2(void)   ATTRIBUTE_NAKED;
-  void app_lcd_util_init (void)   ATTRIBUTE_NAKED;
+  void app_lcd_util_row(const char row) ATTRIBUTE_NAKED;
+  void app_lcd_util_col(const char col) ATTRIBUTE_NAKED;
+
+  void app_lcd_util_init(void) ATTRIBUTE_NAKED;
 
 #endif // APP_LED_UTIL_2024_01_07_H

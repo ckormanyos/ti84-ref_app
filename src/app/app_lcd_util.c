@@ -21,24 +21,18 @@ void app_lcd_util_puts(const char* p_str)
   }
 }
 
-void app_lcd_util_home1(void) ATTRIBUTE_NAKED
+void app_lcd_util_row(const char row) ATTRIBUTE_NAKED
 {
-  __asm__("ld b,#0x02\n");
-  __asm__("ld a,b\n");
+  (void) row;
+
   __asm__("ld (#0x844B), a\n");
-  __asm__("ld b,#0x06\n");
-  __asm__("ld a,b\n");
-  __asm__("ld (#0x844C), a\n");
   __asm__("ret\n");
 }
 
-void app_lcd_util_home2(void) ATTRIBUTE_NAKED
+void app_lcd_util_col(const char col) ATTRIBUTE_NAKED
 {
-  __asm__("ld b,#0x03\n");
-  __asm__("ld a,b\n");
-  __asm__("ld (#0x844B), a\n");
-  __asm__("ld b,#0x06\n");
-  __asm__("ld a,b\n");
+  (void) col;
+
   __asm__("ld (#0x844C), a\n");
   __asm__("ret\n");
 }
