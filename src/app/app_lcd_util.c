@@ -21,7 +21,7 @@ void app_lcd_util_puts(const char* p_str)
   }
 }
 
-void app_lcd_util_row(const char row) ATTRIBUTE_NAKED
+void app_lcd_util_row(const uint8_t row) ATTRIBUTE_NAKED
 {
   (void) row;
 
@@ -29,7 +29,7 @@ void app_lcd_util_row(const char row) ATTRIBUTE_NAKED
   __asm__("ret\n");
 }
 
-void app_lcd_util_col(const char col) ATTRIBUTE_NAKED
+void app_lcd_util_col(const uint8_t col) ATTRIBUTE_NAKED
 {
   (void) col;
 
