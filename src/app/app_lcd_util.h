@@ -3,8 +3,8 @@
 //  Distributed under The Unlicense
 //
 
-#ifndef APP_LED_UTIL_2024_01_07_H
-  #define APP_LED_UTIL_2024_01_07_H
+#ifndef APP_LCD_UTIL_2024_01_07_H
+  #define APP_LCD_UTIL_2024_01_07_H
 
   #include <stdbool.h>
   #include <stdint.h>
@@ -26,9 +26,9 @@
 
   void app_lcd_util_puts(const char* p_str);
 
-  void app_lcd_util_row(const char row) ATTRIBUTE_NAKED;
-  void app_lcd_util_col(const char col) ATTRIBUTE_NAKED;
+  void app_lcd_util_row(const uint8_t row) ATTRIBUTE_NAKED;
+  void app_lcd_util_col(const uint8_t col) ATTRIBUTE_NAKED;
 
   void app_lcd_util_init(void) ATTRIBUTE_NAKED;
 
-#endif // APP_LED_UTIL_2024_01_07_H
+#endif // APP_LCD_UTIL_2024_01_07_H
