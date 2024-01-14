@@ -3,6 +3,7 @@
 //  Distributed under The Unlicense
 //
 
+#include <app/app_lcd_util.h>
 #include <mcal/mcal_gpt.h>
 #include <os/os.h>
 #include <startup/asm_util.h>
@@ -11,7 +12,7 @@ void main(void)
 {
   mcal_gpt_init();
 
-  os_init();
+  app_lcd_util_init();
 
   os_schedule();
 

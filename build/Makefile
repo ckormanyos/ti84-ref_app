@@ -93,7 +93,7 @@ AFLAGS         := -p                       \
 
 
 CFLAGS         := --Werror                 \
-                  --std-c17                \
+                  --std-c23                \
                   -mz80                    \
                   --no-std-crt0            \
                   --code-loc 0x9D9B        \

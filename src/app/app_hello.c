@@ -3,15 +3,9 @@
 //  Distributed under The Unlicense
 //
 
-#include <stdbool.h>
-
 #include <app/app_lcd_util.h>
 
 static bool app_hello_is_hello;
-
-void app_hello_init(void)
-{
-}
 
 void app_hello_task(void)
 {

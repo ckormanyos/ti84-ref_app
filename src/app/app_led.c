@@ -7,11 +7,6 @@
 
 static bool app_led_is_on;
 
-void app_led_init(void)
-{
-  app_lcd_util_init();
-}
-
 void app_led_task(void)
 {
   app_lcd_util_row((uint8_t) UINT8_C(2));
