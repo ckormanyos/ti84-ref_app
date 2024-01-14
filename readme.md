@@ -35,7 +35,7 @@ at rows $2$ and $3$, respectively, and both at column $6$.
 
 A skinny `main()` subroutine in the soruce file
 [`app_main.c`](./src/app/app_main.c) controls the program flow.
-The application is written in high-level C17.
+The application is written in high-level, modern C23.
 There is minimal use of assembly for startup and to interface with
 [TI-83 Plus System Routines](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf).
 
