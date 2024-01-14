@@ -3,8 +3,6 @@
 //  Distributed under The Unlicense
 //
 
-#include <stdbool.h>
-
 #include <startup/asm_util.h>
 #include <mcal/mcal_gpt.h>
 

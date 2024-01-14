@@ -6,7 +6,6 @@
 #ifndef APP_LCD_UTIL_2024_01_07_H
   #define APP_LCD_UTIL_2024_01_07_H
 
-  #include <stdbool.h>
   #include <stdint.h>
 
   #include <startup/asm_util.h>

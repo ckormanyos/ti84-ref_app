@@ -5,15 +5,13 @@
 
 #include <app/app_lcd_util.h>
 
-#define NULL_PTR (void*) 0
-
 static void app_lcd_util_putc(char c) ATTRIBUTE_NAKED;
 
 void app_lcd_util_puts(const char* p_str)
 {
   char c;
 
-  while((p_str != NULL_PTR) && ((c = *p_str) != '\0'))
+  while((p_str != nullptr) && ((c = *p_str) != '\0'))
   {
     app_lcd_util_putc(c);
 
