@@ -10,12 +10,23 @@
 
 void main(void)
 {
+  // The main() subroutine initializes the needed hardware
+  // and controls the multitasking scheduler, which subsequently
+  // controls the blinky and hello-world tasks.
+
+  // Initialize the microcontroller abstraction layer peripheral
+  // general purpose timer.
   mcal_gpt_init();
 
+  // Initialize the LCD application utilities.
   app_lcd_util_init();
 
+  // Engage the multitasking scheduler. This controls both
+  // the blinky as well as the hello-world tasks.
+  // Do not return until the "ENTER" key is pressed.
   os_schedule();
 
+  // De-initialize the general purpose timer.
   mcal_gpt_de_init();
 
   // Exit the Application and return to the home screen
