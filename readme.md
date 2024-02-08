@@ -13,7 +13,7 @@ ti84-ref_app
 `ckormanyos/ti84-ref_app` creates a fully functioning reference application
 for the TI-84 Plus monochrome graphics calculator. It runs in the
 open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
-It uses the TI-84's on-board [Z80 processor]((https://en.wikipedia.org/wiki/Zilog_Z80).
+It uses the TI-84's on-board [Z80 processor](https://en.wikipedia.org/wiki/Zilog_Z80).
 
 The reference application implements parallel _blinky_ and _hello_-_world_ text-shows.
 A minimalistic cooperative multitasking scheduler controls
