@@ -1,5 +1,5 @@
 ##############################################################################
-#  Copyright Christopher Kormanyos 2024.
+#  Copyright Christopher Kormanyos 2023 - 2024.
 #  Distributed under The Unlicense.
 
 name: ti84-ref_app
@@ -22,12 +22,12 @@ jobs:
         run: |
           mkdir ../sdcc-root
           cd ../sdcc-root
-          wget --no-check-certificate https://sourceforge.net/projects/sdcc/files/sdcc-linux-amd64/4.3.0/sdcc-4.3.0-amd64-unknown-linux2.5.tar.bz2
-          tar -xjf sdcc-4.3.0-amd64-unknown-linux2.5.tar.bz2
+          wget --no-check-certificate https://sourceforge.net/projects/sdcc/files/sdcc-linux-amd64/4.4.0/sdcc-4.4.0-amd64-unknown-linux2.5.tar.bz2
+          tar -xjf sdcc-4.4.0-amd64-unknown-linux2.5
       - name: build-and-verify-refapp
         run: |
           cd build
-          PATH=../../sdcc-root/sdcc-4.3.0/bin:"$PATH"
+          PATH=../../sdcc-root/sdcc-4.4.0/bin:"$PATH"
           sdcc -v
           make TYP_OS=UNIX all
           echo 'build-and-verify-refapp partial verify result'
