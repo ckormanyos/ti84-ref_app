@@ -1,8 +1,9 @@
 ##############################################################################80
 #
-#  Copyright Christopher Kormanyos 2024.
+#  Copyright Christopher Kormanyos 2023 - 2024.
 #  Distributed under The Unlicense.
 #
+##############################################################################80
 
 ##############################################################################80
 #
@@ -20,7 +21,6 @@
 #
 ##############################################################################80
 
-
 ##############################################################################80
 # paths
 ##############################################################################80
@@ -28,7 +28,6 @@
 PATH_SRC        := $(CURDIR)/../src
 PATH_BIN        := $(CURDIR)/../bin
 PATH_OBJ        := $(CURDIR)/obj
-
 
 ##############################################################################80
 # tools
@@ -47,7 +46,6 @@ ifeq ($(TYP_OS),UNIX)
 EXEEXT          :=
 endif
 
-
 ifeq ($(TYP_OS),WIN)
 TOOL_PREFIX     := $(CURDIR)/tools/UnxUtils/usr/local/wbin
 TOOL_PREFIX     := $(TOOL_PREFIX)/
@@ -61,7 +59,6 @@ TOOL_PREFIX     :=
 GNUMAKE         := make
 endif
 
-
 AS              := sdasz80$(EXEEXT)
 CC              := sdcc$(EXEEXT)
 CP              := $(TOOL_PREFIX)cp$(EXEEXT)
@@ -72,6 +69,9 @@ OBJCOPY         := $(TOOL_PREFIX)objcopy$(EXEEXT)
 PYTHON          := python$(EXEEXT)
 RM              := $(TOOL_PREFIX)rm$(EXEEXT)
 
+##############################################################################80
+# OS-independent abstratcion of the null-device
+##############################################################################80
 
 ifeq ($(TYP_OS),WIN)
 NULL_DEVICE     := NUL
@@ -82,7 +82,6 @@ ifeq ($(TYP_OS),UNIX)
 NULL_DEVICE     := /dev/null
 $(NULL_DEVICE)  := /dev/null
 endif
-
 
 ##############################################################################80
 # flags
@@ -103,14 +102,12 @@ CFLAGS         := --Werror                 \
                   --vc                     \
                   -I$(PATH_SRC)
 
-
 ##############################################################################80
 # make-command goals
 ##############################################################################80
 
 .PHONY: all
 all : clean version $(PATH_BIN)/refapp.8xp
-
 
 ##############################################################################80
 # versions
@@ -125,7 +122,6 @@ version:
 	@-$(ECHO) +++ print GNUmake version
 	@-$(GNUMAKE) -v
 	@-$(ECHO)
-
 
 ##############################################################################80
 # file lists/paths
@@ -145,7 +141,6 @@ FILES_OBJ      := $(addsuffix .$(SUFFIX_OBJ),$(addprefix $(PATH_OBJ)/,$(basename
 
 VPATH          := $(sort $(dir $(FILES_PRJ)) $(PATH_OBJ))
 
-
 ##############################################################################80
 # compile/link rules
 ##############################################################################80
@@ -154,11 +149,9 @@ $(PATH_BIN)/refapp.ihx : $(FILES_OBJ)
 	@-$(ECHO) +++ compiling $(notdir $(PATH_SRC)/app/app_main.c) and linking/extracting to $(notdir $@)
 	@-$(CC) $(CFLAGS) -o $@ $(PATH_SRC)/app/app_main.c $(FILES_OBJ)
 
-
 ##############################################################################80
 # hex-manip rules
 ##############################################################################80
-
 
 $(PATH_BIN)/refapp.8xp : $(PATH_BIN)/refapp.ihx
 	@-$(ECHO) +++ creating binary file $(notdir $(PATH_BIN)/refapp.bin)
@@ -168,7 +161,6 @@ $(PATH_BIN)/refapp.8xp : $(PATH_BIN)/refapp.ihx
 	@-$(PYTHON) binpac8x.py refapp.bin
 	@-$(MV) refapp.bin $(PATH_BIN)/refapp.bin
 	@-$(MV) refapp.8xp $(PATH_BIN)/refapp.8xp
-
 
 ##############################################################################80
 # clean rule
@@ -184,7 +176,6 @@ clean:
 	@-$(RM) -r $(PATH_OBJ) 2>$(NULL_DEVICE)
 	@-$(MKDIR) -p $(PATH_BIN)
 	@-$(MKDIR) -p $(PATH_OBJ)
-
 
 ##############################################################################80
 # pattern rules
