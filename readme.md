@@ -11,15 +11,16 @@ ti84-ref_app
 </p>
 
 `ckormanyos/ti84-ref_app` creates a fully functioning reference application
-for the z80-based TI-84 Plus monochrome graphics calculator. It runs in the
+for the TI-84 Plus monochrome graphics calculator. It runs in the
 open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
-It uses the TI-84's on-board Z80 processor.
+It uses the TI-84's on-board [Z80 processor]((https://en.wikipedia.org/wiki/Zilog_Z80).
 
 The reference application implements parallel _blinky_ and _hello_-_world_ text-shows.
 A minimalistic cooperative multitasking scheduler controls
 the presentations of the associated ASCII-text messages.
 
-The text-shows _ON_/_OFF_ and _hello_/_world_ are written on the calculator screen.
+The text sequences _ON_/_OFF_ and _hello_/_world_ are presented in
+cyclic, alternating fasion(s) on the calculator screen.
 Text is used since there is no actual LED present on the calculator-target system.
 This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_
 and support an independent _hello_-_world_-task as well.
@@ -128,7 +129,7 @@ from this.
 ### References
 
   - _TI_-_83_ _Plus_ _System_ _Routines_, Third Release (Jan. 25, 2002), located [here](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf)
-  - _SDCC_ _Compiler_ _User_ _Guide_, SDCC 4.4.0, Revision 14549 (Dec. 20, 2023), located [here](https://sdcc.sourceforge.net/doc/sdccman.pdf)
+  - _SDCC_ _Compiler_ _User_ _Guide_, SDCC 4.4.1, Revision 14549 (at the time of writing this doc, Jan. 29, 2024), located [here](https://sdcc.sourceforge.net/doc/sdccman.pdf)
 
 ### Licensing
 
