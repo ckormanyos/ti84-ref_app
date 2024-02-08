@@ -15,12 +15,12 @@ for the TI-84 Plus monochrome graphics calculator. It runs in the
 open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
 It uses the TI-84's on-board [Z80 processor](https://en.wikipedia.org/wiki/Zilog_Z80).
 
-The reference application implements parallel _blinky_ and _hello_-_world_ text-shows.
+The reference application implements parallel _blinky_ and _hello_-_world_ text sequences.
 A minimalistic cooperative multitasking scheduler controls
 the presentations of the associated ASCII-text messages.
 
 The text sequences _ON_/_OFF_ and _hello_/_world_ are presented in
-cyclic, alternating fasion(s) on the calculator screen.
+cyclic, alternating fashion(s) on the calculator screen.
 Text is used since there is no actual LED present on the calculator-target system.
 This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_
 and support an independent _hello_-_world_-task as well.
@@ -36,7 +36,7 @@ at rows $2$ and $3$, respectively, and both at column $6$.
 
 A skinny `main()` subroutine in the soruce file
 [`app_main.c`](./src/app/app_main.c) controls the program flow.
-The application is written in high-level, modern C23.
+The application is written in C23.
 There is minimal use of assembly for startup and to interface with
 [TI-83 Plus System Routines](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf).
 
