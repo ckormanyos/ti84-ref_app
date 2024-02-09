@@ -34,5 +34,7 @@ void main(void)
   // in "TI-83 Plus System Routines", Third Release,
   // (Jan. 25, 2002).
 
+  // _JForceCmdNoChar  #0x4027
+
   __asm__("rst 0x28\n" ".dw #0x4027\n");
 }
