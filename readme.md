@@ -36,6 +36,14 @@ at rows $2$ and $3$, respectively, and both at column $6$.
 
 A skinny `main()` subroutine in the soruce file
 [`app_main.c`](./src/app/app_main.c) controls the program flow.
+After starting the multitasking scheduler with
+[`os_schedule()`](https://github.com/ckormanyos/ti84-ref_app/blob/8291393f971d234c3493e18589b60421d22f61cc/src/app/app_main.c#L27),
+it services the two alternating tasks
+[`app_led_task()`](https://github.com/ckormanyos/ti84-ref_app/blob/8291393f971d234c3493e18589b60421d22f61cc/src/app/app_led.c#L10)
+and
+[`app_hello_task()`](https://github.com/ckormanyos/ti84-ref_app/blob/8291393f971d234c3493e18589b60421d22f61cc/src/app/app_hello.c#L10)
+based on their cycle times.
+
 The application is written in C23.
 There is minimal use of assembly for startup and to interface with
 [TI-83 Plus System Routines](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf).
