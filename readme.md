@@ -56,14 +56,14 @@ Programming the calculator:
   - The on-calculator name of the program is `REFAPP`.
 
 To start the program, use the usual `Asm(prgm)` option found in the `CATALOG`
-menu and select the `REFAPP` program. The explicit key strokes are listed below.
+menu and select the `REFAPP` program. The explicit keystrokes are listed below.
 
-Executing the program on the calculator:
+Let's execute the program on the calculator using keystrokes:
   - Hit $2^{nd}$-CATALOG.
   - Use the arrows to navigate down to the `Asm(` entry and hit enter.
-  - Then hit the `PRGM`-key and select `REFAPP`.
-  - Hit Enter.
-  - The calculator screen should show `Asm(prgmREFFAPP`.
+  - Then hit the `PRGM`-key.
+  - select `REFAPP`.
+  - The calculator screen should now show `Asm(prgmREFFAPP`.
   - Hit enter and the program starts to run.
   - To exit the blinky _ON_/_OFF_ show, press the enter key.
 
