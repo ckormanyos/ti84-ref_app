@@ -60,12 +60,14 @@ menu and select the `REFAPP` program. The explicit keystrokes are listed below.
 
 Let's execute the program on the calculator using keystrokes:
   - Hit $2^{nd}$-CATALOG.
-  - Use the arrows to navigate down to the `Asm(` entry and hit enter.
+  - Use the arrows to navigate down to the `Asm(` entry.
+  - Hit the `ENTER`-key.
   - Then hit the `PRGM`-key.
   - select `REFAPP`.
-  - The calculator screen should now show `Asm(prgmREFFAPP`.
-  - Hit enter and the program starts to run.
-  - To exit the blinky _ON_/_OFF_ show, press the enter key.
+  - The calculator screen should now show `Asm(prgmREFAPP`.
+  - Hit the `ENTER`-key and the program should start to run.
+  - To exit the blinky _ON_/_OFF_ show, press the `ENTER`-key.
+  - Clear the screen (if desired) with the `CLEAR`-key.
 
 The running programm in the display-state _ON_/_hello_ is shown in the image below.
 
