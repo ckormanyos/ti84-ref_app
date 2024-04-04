@@ -50,11 +50,21 @@ There is minimal use of assembly for startup and to interface with
 
 ## Running on the Calculator
 
-Execution:
+Programming the calculator:
   - After build, locate `bin/refapp.8xp`.
   - Drag `refapp.8xp` onto the calculator using the standard method with [TI Connect version 4](https://education.ti.com/en/software/details/en/B59F6C83468C4574ABFEE93D2BC3F807/swticonnectsoftware). Important: Use version 4 for the TI-84 Plus.
   - The on-calculator name of the program is `REFAPP`.
-  - To start the program, use the usual `Asm(prgm)` option found in the `CATALOG` menu and select the `REFAPP` program.
+
+To start the program, use the usual `Asm(prgm)` option found in the `CATALOG`
+menu and select the `REFAPP` program. The explicit key strokes are listed below.
+
+Executing the program on the calculator:
+  - Hit $2^{nd}$-CATALOG.
+  - Use the arrows to navigate down to the `Asm(` entry and hit enter.
+  - Then hit the `PRGM`-key and select `REFAPP`.
+  - Hit Enter.
+  - The calculator screen should show `Asm(prgmREFFAPP`.
+  - Hit enter and the program starts to run.
   - To exit the blinky _ON_/_OFF_ show, press the enter key.
 
 The running programm in the display-state _ON_/_hello_ is shown in the image below.
