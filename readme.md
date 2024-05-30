@@ -7,7 +7,7 @@ ti84-ref_app
     <a href="https://github.com/ckormanyos/ti84-ref_app/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc">
         <img src="https://custom-icon-badges.herokuapp.com/github/issues-raw/ckormanyos/ti84-ref_app?logo=github" alt="Issues" /></a>
     <a href="https://github.com/ckormanyos/ti84-ref_app/blob/main/UNLICENSE">
-        <img src="https://img.shields.io/badge/license-The Unlicense-blue.svg" alt="The Unlicense"></a>
+        <img src="https://img.shields.io/badge/license-Unlicense-blue.svg" alt="Unlicense"></a>
 </p>
 
 `ckormanyos/ti84-ref_app` creates a fully functioning reference application
@@ -50,16 +50,33 @@ There is minimal use of assembly for startup and to interface with
 
 ## Running on the Calculator
 
-Execution:
+Programming the calculator:
   - After build, locate `bin/refapp.8xp`.
   - Drag `refapp.8xp` onto the calculator using the standard method with [TI Connect version 4](https://education.ti.com/en/software/details/en/B59F6C83468C4574ABFEE93D2BC3F807/swticonnectsoftware). Important: Use version 4 for the TI-84 Plus.
   - The on-calculator name of the program is `REFAPP`.
-  - To start the program, use the usual `Asm(prgm)` option found in the `CATALOG` menu and select the `REFAPP` program.
-  - To exit the blinky _ON_/_OFF_ show, press the enter key.
+
+To start the program, use the usual `Asm(prgm)` option found in the `CATALOG`
+menu and select the `REFAPP` program. The explicit keystrokes are listed below.
+
+Let's execute the program on the calculator using keystrokes:
+  - Hit $2^{nd}$-CATALOG.
+  - Use the arrows to navigate down to the `Asm(` entry.
+  - Hit the `ENTER`-key.
+  - Then hit the `PRGM`-key.
+  - select `REFAPP`.
+  - The calculator screen should now show `Asm(prgmREFAPP`.
+  - Hit the `ENTER`-key and the program should start to run.
+  - To exit the blinky _ON_/_OFF_ show, press the `ENTER`-key.
+  - Clear the screen (if desired) with the `CLEAR`-key.
 
 The running programm in the display-state _ON_/_hello_ is shown in the image below.
 
 ![](./images/ti84-ref_app.jpg)
+
+## Pre-built Program
+
+A fully-built `ref_app` can be found in the [`bin`](./bin) directory.
+This pre-built program can be used to trouble-shoot the environment.
 
 ## Tools and Build
 
