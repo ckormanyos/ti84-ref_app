@@ -7,7 +7,7 @@ ti84-ref_app
     <a href="https://github.com/ckormanyos/ti84-ref_app/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc">
         <img src="https://custom-icon-badges.herokuapp.com/github/issues-raw/ckormanyos/ti84-ref_app?logo=github" alt="Issues" /></a>
     <a href="https://github.com/ckormanyos/ti84-ref_app/blob/main/UNLICENSE">
-        <img src="https://img.shields.io/badge/license-The Unlicense-blue.svg" alt="The Unlicense"></a>
+        <img src="https://img.shields.io/badge/license-Unlicense-blue.svg" alt="Unlicense"></a>
 </p>
 
 `ckormanyos/ti84-ref_app` creates a fully functioning reference application
@@ -72,6 +72,11 @@ Let's execute the program on the calculator using keystrokes:
 The running programm in the display-state _ON_/_hello_ is shown in the image below.
 
 ![](./images/ti84-ref_app.jpg)
+
+## Pre-built Program
+
+A fully-built `ref_app` can be found in the [`bin`](./bin) directory.
+This pre-built program can be used to trouble-shoot the environment.
 
 ## Tools and Build
 

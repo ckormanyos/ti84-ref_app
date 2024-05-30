@@ -1,0 +1,138 @@
+ASxxxx Linker V03.00/V05.40 + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           crt
+     00000000  l__BSS                          
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__HEADER                       
+     00000000  l__HEADER1                      
+     00000000  l__HOME                         
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000000  s__HEADER                       
+     00000000  s__HEADER0                      
+     00000000  s__HEADER1                      
+     00000001  l__GSFINAL                      
+     00000003  l__DATA                         
+     00000008  l__HEADER0                      
+     00000008  l__INITIALIZED                  
+     00000008  l__INITIALIZER                  
+     00000025  l__GSINIT                       
+     00000166  l__CODE                         
+     00009D9B  s__CODE                         
+     00009F01  s__DATA                         
+     00009F04  s__INITIALIZED                  
+     00009F0C  s__GSINIT                       
+     00009F0C  s__HOME                         
+     00009F31  s__GSFINAL                      
+     00009F32  s__INITIALIZER                  
+     00009F3A  s__BSS                          
+ASxxxx Linker V03.00/V05.40 + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00009D9B    00000166 =         358. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00009D9B  _main                              app_main
+     00009DAB  _app_hello_task                    app_hello
+     00009DEF  _app_lcd_util_puts                 app_lcd_util
+     00009DFF  _app_lcd_util_row                  app_lcd_util
+     00009E03  _app_lcd_util_col                  app_lcd_util
+     00009E07  _app_lcd_util_init                 app_lcd_util
+     00009E12  _app_led_task                      app_led
+     00009E50  _mcal_gpt_init                     mcal_gpt
+     00009E63  _mcal_gpt_de_init                  mcal_gpt
+     00009E6C  _mcal_gpt_get_time_elapsed         mcal_gpt
+     00009E9A  _os_schedule                       os
+
+ASxxxx Linker V03.00/V05.40 + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               00009F01    00000003 =           3. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00/V05.40 + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_INITIALIZED                        00009F04    00000008 =           8. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00/V05.40 + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_GSINIT                             00009F0C    00000025 =          37. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00/V05.40 + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_GSFINAL                            00009F31    00000001 =           1. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00/V05.40 + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_INITIALIZER                        00009F32    00000008 =           8. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00/V05.40 + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_HEADER0                            00000000    00000008 =           8. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00/V05.40 + sdld,  page 9.
+
+Files Linked                              [ module(s) ]
+
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.rel
+                                          [ app_main ]
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_hello.rel
+                                          [ app_hello ]
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_lcd_util.rel
+                                          [ app_lcd_util ]
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_led.rel
+                                          [ app_led ]
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/mcal_gpt.rel
+                                          [ mcal_gpt ]
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/os.rel
+                                          [ os ]
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/crt0.rel
+                                          [ crt ]
+
+ASxxxx Linker V03.00/V05.40 + sdld,  page 10.
+
+User Base Address Definitions
+
+_CODE = 0x9d9b
+_DATA = 0x0000
+
+

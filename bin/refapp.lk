@@ -1,0 +1,15 @@
+-mjwx
+-i C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.ihx
+-b _CODE = 0x9d9b
+-b _DATA = 0x0000
+-k C:\Program Files\SDCC\bin\..\lib\z80
+-l z80
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.rel
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_hello.rel
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_lcd_util.rel
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_led.rel
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/mcal_gpt.rel
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/os.rel
+C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/crt0.rel
+
+-e

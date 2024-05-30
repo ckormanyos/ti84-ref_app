@@ -1,0 +1,67 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.4.0 #14579 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module app_main
+                                      6 	.optsdcc -mz80
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _main
+                                     12 	.globl _os_schedule
+                                     13 	.globl _mcal_gpt_de_init
+                                     14 	.globl _mcal_gpt_init
+                                     15 	.globl _app_lcd_util_init
+                                     16 ;--------------------------------------------------------
+                                     17 ; special function registers
+                                     18 ;--------------------------------------------------------
+                                     19 ;--------------------------------------------------------
+                                     20 ; ram data
+                                     21 ;--------------------------------------------------------
+                                     22 	.area _DATA
+                                     23 ;--------------------------------------------------------
+                                     24 ; ram data
+                                     25 ;--------------------------------------------------------
+                                     26 	.area _INITIALIZED
+                                     27 ;--------------------------------------------------------
+                                     28 ; absolute external ram data
+                                     29 ;--------------------------------------------------------
+                                     30 	.area _DABS (ABS)
+                                     31 ;--------------------------------------------------------
+                                     32 ; global & static initialisations
+                                     33 ;--------------------------------------------------------
+                                     34 	.area _HOME
+                                     35 	.area _GSINIT
+                                     36 	.area _GSFINAL
+                                     37 	.area _GSINIT
+                                     38 ;--------------------------------------------------------
+                                     39 ; Home
+                                     40 ;--------------------------------------------------------
+                                     41 	.area _HOME
+                                     42 	.area _HOME
+                                     43 ;--------------------------------------------------------
+                                     44 ; code
+                                     45 ;--------------------------------------------------------
+                                     46 	.area _CODE
+                                     47 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:11: void main(void)
+                                     48 ;	---------------------------------
+                                     49 ; Function main
+                                     50 ; ---------------------------------
+      000000                         51 _main::
+                                     52 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:19: mcal_gpt_init();
+      000000 CDr00r00         [17]   53 	call	_mcal_gpt_init
+                                     54 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:22: app_lcd_util_init();
+      000003 CDr00r00         [17]   55 	call	_app_lcd_util_init
+                                     56 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:27: os_schedule();
+      000006 CDr00r00         [17]   57 	call	_os_schedule
+                                     58 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:30: mcal_gpt_de_init();
+      000009 CDr00r00         [17]   59 	call	_mcal_gpt_de_init
+                                     60 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:39: __asm__("rst 0x28\n" ".dw #0x4027\n");
+      00000C EF               [11]   61 	rst	0x28
+      00000D 27 40                   62 	.dw	#0x4027
+                                     63 ;c:\users\user\documents\ks\uc_software\boards\ti84-ref_app\src\app\app_main.c:40: }
+      00000F C9               [10]   64 	ret
+                                     65 	.area _CODE
+                                     66 	.area _INITIALIZER
+                                     67 	.area _CABS (ABS)
