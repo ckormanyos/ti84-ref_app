@@ -128,7 +128,8 @@ make TYP_OS=UNIX all
 Testing has been performed on the target system, which is a fully-functioning
 TI-84 Plus calculator purchased years ago from a commercial retailer.
 
-Continuous integration is performed on GHA using an ubuntu-latest runner.
+Continuous integration is performed on GHA using a ubuntu-latest
+and macos-latest runners.
 The [workflow run](./.github/workflows/ti84-ref_app.yml)
 builds the application and verifies the presence of `bin/refapp.8xp`.
 
