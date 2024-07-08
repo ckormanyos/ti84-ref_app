@@ -32,3 +32,22 @@ jobs:
           make TYP_OS=UNIX all
           echo 'build-and-verify-refapp partial verify result'
           ls -la ../bin/refapp.8xp
+  gcc-build-native-macos:
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+      - name: get-sdcc-toolchain
+        run: |
+          brew install sdcc
+      - name: build-and-verify-refapp
+        run: |
+          cd build
+          sdcc -v
+          make TYP_OS=UNIX all
+          echo 'build-and-verify-refapp partial verify result'
+          ls -la ../bin/refapp.8xp

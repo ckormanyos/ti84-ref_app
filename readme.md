@@ -128,7 +128,8 @@ make TYP_OS=UNIX all
 Testing has been performed on the target system, which is a fully-functioning
 TI-84 Plus calculator purchased years ago from a commercial retailer.
 
-Continuous integration is performed on GHA using an ubuntu-latest runner.
+Continuous integration is performed on GHA using a ubuntu-latest
+and macos-latest runners.
 The [workflow run](./.github/workflows/ti84-ref_app.yml)
 builds the application and verifies the presence of `bin/refapp.8xp`.
 
@@ -166,5 +167,4 @@ from this.
 
   - The source code written for this repo (in the [`src`](./src)) directory is licensed under [_The_ _Unlicense_](./LICENSE).
   - `Win*`-ported `*nix` tools in [`wbin`](./build/tools/UnxUtils/usr/local/wbin) originate from [UnxTools](https://sourceforge.net/projects/unxutils) and include their own [distribution statements](./build/tools/UnxUtils).
-  - The `Win*`-ported `objcopy.exe` originates from Steven T. Lavavej's [`MinGW Distro`](https://nuwen.net/mingw.html).
   - The `Win*`-ported GNUmake is taken from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).

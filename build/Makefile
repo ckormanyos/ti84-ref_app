@@ -65,7 +65,7 @@ CP              := $(TOOL_PREFIX)cp$(EXEEXT)
 ECHO            := $(TOOL_PREFIX)echo$(EXEEXT)
 MKDIR           := $(TOOL_PREFIX)mkdir$(EXEEXT)
 MV              := $(TOOL_PREFIX)mv$(EXEEXT)
-OBJCOPY         := $(TOOL_PREFIX)objcopy$(EXEEXT)
+OBJCOPY         := sdobjcopy$(EXEEXT)
 PYTHON          := python$(EXEEXT)
 RM              := $(TOOL_PREFIX)rm$(EXEEXT)
 
