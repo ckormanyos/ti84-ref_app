@@ -2,7 +2,7 @@
 -i C:/Users/ckorm/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.ihx
 -b _CODE = 0x9d9b
 -b _DATA = 0x0000
--k C:\Program Files (x86)\SDCC\bin\..\lib\z80
+-k C:\Program Files\SDCC\bin\..\lib\z80
 -l z80
 C:/Users/ckorm/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.rel
 C:/Users/ckorm/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/obj/app_hello.rel

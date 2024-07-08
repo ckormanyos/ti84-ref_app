@@ -48,6 +48,6 @@ jobs:
         run: |
           cd build
           sdcc -v
-          make TYP_OS=UNIX all TYP_OBJCOPY=gobjcopy
+          make TYP_OS=UNIX all
           echo 'build-and-verify-refapp partial verify result'
           ls -la ../bin/refapp.8xp

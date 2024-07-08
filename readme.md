@@ -167,5 +167,4 @@ from this.
 
   - The source code written for this repo (in the [`src`](./src)) directory is licensed under [_The_ _Unlicense_](./LICENSE).
   - `Win*`-ported `*nix` tools in [`wbin`](./build/tools/UnxUtils/usr/local/wbin) originate from [UnxTools](https://sourceforge.net/projects/unxutils) and include their own [distribution statements](./build/tools/UnxUtils).
-  - The `Win*`-ported `objcopy.exe` originates from Steven T. Lavavej's [`MinGW Distro`](https://nuwen.net/mingw.html).
   - The `Win*`-ported GNUmake is taken from [`ckormanyos/make-4.2.1-msvc-build`](https://github.com/ckormanyos/make-4.2.1-msvc-build).
