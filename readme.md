@@ -69,10 +69,10 @@ Let's execute the program on the calculator using keystrokes:
   - Use the arrows to navigate down to the `Asm(` entry.
   - Hit the `ENTER`-key.
   - Then hit the `PRGM`-key.
-  - select `REFAPP`.
+  - select `REFAPP` and hit the `ENTER`-key.
   - The calculator screen should now show `Asm(prgmREFAPP`.
   - Hit the `ENTER`-key and the program should start to run.
-  - To exit the blinky _ON_/_OFF_ show, press the `ENTER`-key.
+  - To exit the blinky _ON_/_OFF_ and hello/world show, press the `ENTER`-key.
   - Clear the screen (if desired) with the `CLEAR`-key.
 
 The running programm in the display-state _ON_/_hello_ is shown in the image below.
