@@ -16,8 +16,11 @@ open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
 It uses the TI-84's on-board [Z80 processor](https://en.wikipedia.org/wiki/Zilog_Z80).
 
 The reference application implements parallel _blinky_ and _hello_-_world_ text sequences.
-A minimalistic cooperative multitasking scheduler controls
-the presentations of the associated ASCII-text messages.
+It boots through a small startup code and subsequently
+initializes a skinny microcontroller abstraction layer (MCAL).
+Control is then passed to a minimalistic cooperative multitasking scheduler.
+The application task (managed by the scheduler) directs the presentations
+of its associated ASCII-text messages.
 
 The text sequences _ON_/_OFF_ and _hello_/_world_ are presented in
 cyclic, alternating fashion(s) on the calculator screen.
@@ -25,6 +28,8 @@ Text is used since there is no actual LED present on the calculator-target syste
 This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_
 and support an independent _hello_-_world_-task as well.
 The _ON_/_OFF_ messages are printed every $1s$ and the _hello_/_world_ messages every $3s$.
+
+## Implementation details
 
 The cooperative multitasking timebase is derived from a $1s$ tick.
 The underlying 32-bit timer resides on ports `0x45`-`0x48`,
