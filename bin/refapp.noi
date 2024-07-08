@@ -36,4 +36,4 @@ DEF _mcal_gpt_init 0x9E50
 DEF _mcal_gpt_de_init 0x9E63
 DEF _mcal_gpt_get_time_elapsed 0x9E6C
 DEF _os_schedule 0x9E9A
-LOAD C:/Users/User/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.ihx
+LOAD C:/Users/ckorm/Documents/Ks/uC_Software/Boards/ti84-ref_app/build/../bin/refapp.ihx

@@ -4,25 +4,27 @@
 ;//
 
 ; crt0.s
-; Perform C-runtime startup including static initialization (i.e., bss/data clear/init).
+; Perform C-runtime startup including static initialization (i.e., of RAM: bss/data clear/init).
+; RAM initialization is implemented in the subroutine gsinit.
+; Subsequently jump to main() and never return.
 
-   .module crt
-   .globl _main
-   .area _HEADER (ABS)
-   .org #0x9D93
+  .module crt
+  .globl _main
+  .area _HEADER (ABS)
+  .org #0x9D93
 
-   .dw #0x6DBB
+  .dw #0x6DBB
 
-   call gsinit
-   jp _main
-   .org 0x9D9B
-   .area _CODE
-   .area _GSINIT
-   .area _GSFINAL
-   .area _DATA
-   .area _BSS
-   .area _INITIALIZED
-   .area _INITIALIZER
+  call gsinit
+  jp _main
+  .org 0x9D9B
+  .area _CODE
+  .area _GSINIT
+  .area _GSFINAL
+  .area _DATA
+  .area _BSS
+  .area _INITIALIZED
+  .area _INITIALIZER
 
 .area _GSINIT
 gsinit:

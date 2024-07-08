@@ -7,10 +7,17 @@
   #define ASM_UTIL_2024_01_07_H
 
   #if defined(_MSC_VER)
-  #define __asm__(x)
+
+  #define ASM(x)
   #define ATTRIBUTE_NAKED
+  #define RETURN_FROM_NAKED(ret_val) return (ret_val)
+
   #else
+
   #define ATTRIBUTE_NAKED __naked
+  #define ASM(x) __asm__(x)
+  #define RETURN_FROM_NAKED(ret_val)
+
   #endif
 
 #endif // ASM_UTIL_2024_01_07_H

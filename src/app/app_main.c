@@ -36,5 +36,5 @@ void main(void)
 
   // _JForceCmdNoChar  #0x4027
 
-  __asm__("rst 0x28\n" ".dw #0x4027\n");
+  ASM("rst 0x28\n" ".dw #0x4027\n");
 }

@@ -3,12 +3,12 @@
 //  Distributed under The Unlicense
 //
 
-#include <stddef.h>
-#include <stdint.h>
-
 #include <mcal/mcal_gpt.h>
 #include <os/os.h>
 #include <startup/asm_util.h>
+
+#include <stddef.h>
+#include <stdint.h>
 
 typedef void(*os_function_type)(void);
 
@@ -20,7 +20,7 @@ typedef struct os_task_control_block
 }
 os_task_control_block;
 
-#define OS_COUNTOF(a) ((size_t) (sizeof(a) / sizeof((a)[(size_t) UINT8_C(0)])))
+#define TASK_COUNT (uint8_t) (sizeof(os_task_list) / sizeof((os_task_list)[(size_t) UINT8_C(0)]))
 
 #define OS_TIMER_TIMEOUT(T) (bool) (((uint8_t) ((uint8_t) (mcal_gpt_get_time_elapsed() - (T)) & (uint8_t) UINT8_C(0x80)) == (uint8_t) UINT8_C(0)) ? true : false)
 
@@ -39,7 +39,7 @@ void os_schedule(void)
 {
   while(!os_wants_exit())
   {
-    for(uint8_t task_index = (uint8_t) UINT8_C(0); task_index < (uint8_t) OS_COUNTOF(os_task_list); ++task_index)
+    for(uint8_t task_index = (uint8_t) UINT8_C(0); task_index < TASK_COUNT; ++task_index)
     {
       if(OS_TIMER_TIMEOUT(os_task_list[task_index].timer))
       {
@@ -53,15 +53,13 @@ void os_schedule(void)
 
 static bool os_wants_exit(void) ATTRIBUTE_NAKED
 {
-  __asm__("rst 0x28\n" ".dw #0x4018\n");
-  __asm__("ld h, #0x0\n");
-  __asm__("cp #0x9\n");
-  __asm__("jp nz, no_exit\n");
-  __asm__("ld h, #0x1\n");
-  __asm__("no_exit:\n");
-  __asm__("ret\n");
+  ASM("rst 0x28\n" ".dw #0x4018\n");
+  ASM("ld h, #0x0\n");
+  ASM("cp #0x9\n");
+  ASM("jp nz, no_exit\n");
+  ASM("ld h, #0x1\n");
+  ASM("no_exit:\n");
+  ASM("ret\n");
 
-  #if defined(_MSC_VER)
-  return false;
-  #endif
+  RETURN_FROM_NAKED(false);
 }
