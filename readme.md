@@ -25,14 +25,15 @@ of its associated ASCII-text messages.
 The text sequences _ON_/_OFF_ and _hello_/_world_ are presented in
 cyclic, alternating fashion(s) on the calculator screen.
 Text is used since there is no actual LED present on the calculator-target system.
-This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_
-and support an independent _hello_-_world_-task as well.
-The _ON_/_OFF_ messages are printed every $1s$ and the _hello_/_world_ messages every $3s$.
+This is intended to simulate an LED-blinky by _toggling_ between _ON_ and _OFF_.
+To make the program a little more interesting, an independent _hello_-_world_-task
+is supported as well. The _ON_/_OFF_ messages are printed every $1s$
+and the _hello_/_world_ messages every $3s$.
 
 ## Implementation details
 
 The cooperative multitasking timebase is derived from a $1s$ tick.
-The underlying 32-bit timer resides on ports `0x45`-`0x48`,
+The underlying $32$-bit timer resides on ports `0x45`-`0x48`,
 where the lower byte at port `0x45` is used.
 This timer is only available on the TI-84, not the TI-83.
 
@@ -49,7 +50,7 @@ and
 [`app_hello_task()`](https://github.com/ckormanyos/ti84-ref_app/blob/8291393f971d234c3493e18589b60421d22f61cc/src/app/app_hello.c#L10)
 based on their cycle times.
 
-The application is written in C23.
+The application is written in the C language using the C23 standard.
 There is minimal use of assembly for startup and to interface with
 [TI-83 Plus System Routines](https://education.ti.com/html/eguides/discontinued/computer-software/EN/SDK-TI-83-System-Routines_EN.pdf).
 
@@ -100,7 +101,7 @@ The build system:
 ### Build on `Win*`
 
 Prerequisites:
-  - Install [`sdcc`](https://sdcc.sourceforge.net) version 4.3 or higher.
+  - Install [`sdcc`](https://sdcc.sourceforge.net) version 4.4 or higher.
   - Install python.
 
 Then build in the command shell with:

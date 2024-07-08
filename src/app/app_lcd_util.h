@@ -6,9 +6,9 @@
 #ifndef APP_LCD_UTIL_2024_01_07_H
   #define APP_LCD_UTIL_2024_01_07_H
 
-  #include <stdint.h>
-
   #include <startup/asm_util.h>
+
+  #include <stdint.h>
 
   void app_lcd_util_puts(const char* p_str);
 
