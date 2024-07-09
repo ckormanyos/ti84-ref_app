@@ -114,7 +114,7 @@ make TYP_OS=WIN all
 ### Build on `*nix`
 
 Prerequisites:
-  - Install [`sdcc`](https://sdcc.sourceforge.net) version 4.3 or higher.
+  - Install [`sdcc`](https://sdcc.sourceforge.net) version 4.4 or higher.
 
 Then build in the bash shell with:
 
@@ -140,8 +140,8 @@ builds the application and verifies the presence of `bin/refapp.8xp`.
   - This project has been inspired by and influenced by numerous previous works, including (but not limited to) the [azertyfun/LibTI](https://github.com/azertyfun/LibTI) project.
   - The aforementioned [project](https://github.com/azertyfun/LibTI) was ground-breaking and excellent.
 
-Please do, however, use at your own discretion and observe also
-the [license](./LICENSE) details. This project is not in any way
+Please do, however, use this project at your own discretion and observe
+also the [license](./LICENSE) details. This project is not in any way
 affiliated with Texas Instruments Inc, or any of its subsidiaries,
 including the educational products division.
 
@@ -149,14 +149,14 @@ Some of this software has been reverse engineered
 from other projects or terse technical notes.
 In addition, the software actively writes to calculator
 _ports_, such as port `0x40` and port `0x41`.
-Personally. I do not consider this to be a $100\\%$ sound basis
+Personally, I do not consider this to be a $100\\%$ sound basis
 for project reliability and/or stability.
 
-Nonetheless, empirical evidence shows a working,
+Empirical evidence does, nonetheless, show a working,
 and fully/properly initialized C-language, non-trivial application.
 It provides a basis that seems to adhere to the established,
-common rules of modern C. Larger projects could be built or modelled
-from this.
+common rules of modern C. Larger projects could potentially
+be built upon or modelled from this one.
 
 ### References
 
