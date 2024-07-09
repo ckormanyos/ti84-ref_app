@@ -9,7 +9,7 @@ on:
       - '**'
   pull_request:
 jobs:
-  gcc-build-native:
+  sdcc-build-native:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -32,7 +32,7 @@ jobs:
           make TYP_OS=UNIX all
           echo 'build-and-verify-refapp partial verify result'
           ls -la ../bin/refapp.8xp
-  gcc-build-native-macos:
+  sdcc-build-native-macos:
     runs-on: macos-latest
     defaults:
       run:
