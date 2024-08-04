@@ -22,6 +22,20 @@
 ##############################################################################80
 
 ##############################################################################80
+# operating system
+##############################################################################80
+
+ifeq ($(TYP_OS),)
+
+ifeq ($(OS),Windows_NT)
+TYP_OS       := WIN
+else
+TYP_OS       := NIX
+endif
+
+endif
+
+##############################################################################80
 # paths
 ##############################################################################80
 
@@ -33,16 +47,11 @@ PATH_OBJ        := $(CURDIR)/obj
 # tools
 ##############################################################################80
 
-ifeq ($(TYP_OS),)
-TYP_OS          := UNIX
-endif
-
-
 ifeq ($(TYP_OS),WIN)
 EXEEXT          := .exe
 endif
 
-ifeq ($(TYP_OS),UNIX)
+ifeq ($(TYP_OS),NIX)
 EXEEXT          :=
 endif
 
@@ -53,7 +62,7 @@ TOOL_PREFIX     := $(TOOL_PREFIX)/
 GNUMAKE         := $(CURDIR)/make$(EXEEXT)
 endif
 
-ifeq ($(TYP_OS),UNIX)
+ifeq ($(TYP_OS),NIX)
 TOOL_PREFIX     :=
 
 GNUMAKE         := make
@@ -78,7 +87,7 @@ NULL_DEVICE     := NUL
 $(NULL_DEVICE)  := NUL
 endif
 
-ifeq ($(TYP_OS),UNIX)
+ifeq ($(TYP_OS),NIX)
 NULL_DEVICE     := /dev/null
 $(NULL_DEVICE)  := /dev/null
 endif

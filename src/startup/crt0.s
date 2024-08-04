@@ -4,7 +4,10 @@
 ;//
 
 ; crt0.s
-; Perform C-runtime startup including static initialization (i.e., of RAM: bss/data clear/init).
+
+; Perform C-runtime startup static initialization
+; including the RAM classes of bss/data clear/init.
+
 ; RAM initialization is implemented in the subroutine gsinit.
 ; Subsequently jump to main() and never return.
 

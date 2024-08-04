@@ -10,8 +10,8 @@
 
 void main(void)
 {
-  // The main() subroutine initializes the needed hardware
-  // and controls the multitasking scheduler, which subsequently
+  // The main() subroutine initializes the needed hardware.
+  // It then launches the multitasking scheduler, which subsequently
   // controls the blinky and hello-world tasks.
 
   // Initialize the microcontroller abstraction layer peripheral

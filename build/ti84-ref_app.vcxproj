@@ -37,7 +37,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ti84-plus|x64'" Label="Configuration">
     <ConfigurationType>Makefile</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -49,10 +49,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ti84-plus|x64'">
-    <NMakeBuildCommandLine>make TYP_OS=WIN all</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>make all</NMakeBuildCommandLine>
     <NMakeOutput>$(ProjectDir)..\bin\refapp.8xp</NMakeOutput>
-    <NMakeCleanCommandLine>make TYP_OS=WIN clean</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>make TYP_OS=WIN all</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>make all</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>
     </NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>$(ProjectDir)..\src</NMakeIncludeSearchPath>

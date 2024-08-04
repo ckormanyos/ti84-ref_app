@@ -108,7 +108,7 @@ Then build in the command shell with:
 
 ```cmd
 cd ti84-ref_app\build
-make TYP_OS=WIN all
+make all
 ```
 
 ### Build on `*nix`
@@ -120,7 +120,7 @@ Then build in the bash shell with:
 
 ```sh
 cd ti84-ref_app/build
-make TYP_OS=UNIX all
+make all
 ```
 
 ## Testing and Continuous Integration
