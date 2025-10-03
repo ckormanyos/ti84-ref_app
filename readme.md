@@ -16,7 +16,9 @@ open `Asm(prgm)` interface provided in the calculator's `CATALOG` menu.
 It uses the TI-84's on-board [Z80 processor](https://en.wikipedia.org/wiki/Zilog_Z80).
 
 The reference application implements parallel _blinky_ and _hello_-_world_ text sequences.
-It boots through a small startup code and subsequently
+It boots through a small
+[startup code](https://github.com/ckormanyos/ti84-ref_app/blob/main/src/startup/crt0.s)
+and subsequently
 initializes a skinny microcontroller abstraction layer (MCAL).
 Control is then passed to a minimalistic cooperative multitasking scheduler.
 The application task (managed by the scheduler) directs the presentations
@@ -110,6 +112,10 @@ Then build in the command shell with:
 cd ti84-ref_app\build
 make all
 ```
+
+Note that aa ported version of GNUmake called `make.exe` is included in the repo.
+In this way, the command `make all` can be found locally in the same directory
+as the `Makefile` and runs `make.exe` with `Makefile`.
 
 ### Build on `*nix`
 
