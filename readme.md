@@ -113,8 +113,9 @@ cd ti84-ref_app\build
 make all
 ```
 
-Note that aa ported version of GNUmake called `make.exe` is included in the repo.
-In this way, the command `make all` can be found locally in the same directory
+Note that a ported version of GNUmake called `make.exe` is included in the repo.
+In this way, the command `make all` can be found locally in the
+[same directory](https://github.com/ckormanyos/ti84-ref_app/tree/main/build)
 as the `Makefile` and runs `make.exe` with `Makefile`.
 
 ### Build on `*nix`
